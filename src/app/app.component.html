@@ -1,0 +1,63 @@
+<!-- Top navigation -->
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" *ngIf="isAdminLoggedIn">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" routerLink="/register-student">
+    <span class="dasboard-text">Dashboard</span>
+  </a>
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap">
+      <a class="nav-link" routerLink="/register-student">
+        <span class="user-image"></span>
+        Hello Admin
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Sidebar navigation -->
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-md-2 d-md-block bg-light sidebar" *ngIf="isAdminLoggedIn">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/register-student" routerLinkActive="active">
+              Add User
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/view-students" routerLinkActive="active">
+              Users List
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/queries" routerLinkActive="active">
+              User queries
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/main" routerLinkActive="active">
+              Main Page
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main content -->
+    <!-- Main content -->
+    <div *ngIf="!isAdminLoggedIn">
+      <main role="main" class="main-cont">
+        <div class="inner-adjust center-content">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+    </div>
+
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" *ngIf="isAdminLoggedIn">
+      <div class="inner-adjust center-content">
+        <router-outlet></router-outlet>
+      </div>
+    </main>
+  </div>
+</div>

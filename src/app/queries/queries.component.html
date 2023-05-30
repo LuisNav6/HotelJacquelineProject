@@ -1,0 +1,128 @@
+<div class="row">
+<div class="col-lg-12">
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h2 class="h2">Queries</h2>
+</div>
+    <!-- Query by name -->
+<div class="my-4 table-responsive" >
+    <h3>Query by name</h3>
+    <div class="row">
+      <div class="col-md-4">
+        <input type="text" class="form-control" [(ngModel)]="firstName" placeholder="Name">
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-primary" (click)="searchUsersByFullName()">Buscar</button>
+      </div>
+    </div>
+    <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg" *ngIf="usersByFullName.length > 0">
+      <thead>
+        <tr>
+            <th scope="col">User name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile number</th>
+            <th scope="col">Check-In</th>
+            <th scope="col">Check-Out</th>
+            <th scope="col">Persons</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of usersByFullName">
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.mobileNumber }}</td>
+            <td>{{ user.checkIn }}</td>
+            <td>{{ user.checkOut }}</td>
+            <td>{{ user.persons }}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="usersByFullName.length === 0 && searchPerformedByFullName">
+      <div class="alert alert-danger mt-3" role="alert">
+        No users were found with the specified name.
+      </div>
+    </div>
+  </div>
+  
+  
+    <!-- Query by date -->
+    <div class="my-4 table-responsive">
+      <h3>Query by check-in date</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <input type="date" class="form-control" [(ngModel)]="checkInDate" placeholder="Check-in date (YYYY-MM-DD)">
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary" (click)="searchUsersByCheckInDate()">Buscar</button>
+        </div>
+      </div>
+      <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg" *ngIf="usersByCheckInDate.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">User name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile number</th>
+            <th scope="col">Check-In</th>
+            <th scope="col">Check-Out</th>
+            <th scope="col">Persons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersByCheckInDate">
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.mobileNumber }}</td>
+            <td>{{ user.checkIn }}</td>
+            <td>{{ user.checkOut }}</td>
+            <td>{{ user.persons }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="usersByCheckInDate.length === 0 && searchPerformedByCheckInDate">
+        <div class="alert alert-danger mt-3" role="alert">
+            No users were found with the specified check-in date.
+        </div>
+      </div>
+    </div>
+  
+    <!-- Query by number of persons -->
+    <div class="my-4 table-responsive">
+      <h3>Query by number of people</h3>
+      <div class="row">
+        <div class="col-md-4">
+          <input type="number" class="form-control" [(ngModel)]="personsCount" placeholder="number of people">
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-primary" (click)="searchUsersByPersonsCount()">Buscar</button>
+        </div>
+      </div>
+      <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg" *ngIf="usersByPersonsCount.length > 0">
+        <thead>
+          <tr>
+            <th scope="col">User name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Mobile number</th>
+            <th scope="col">Check-In</th>
+            <th scope="col">Check-Out</th>
+            <th scope="col">Persons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of usersByPersonsCount">
+            <td>{{ user.firstName }} {{ user.lastName }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.mobileNumber }}</td>
+            <td>{{ user.checkIn }}</td>
+            <td>{{ user.checkOut }}</td>
+            <td>{{ user.persons }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="usersByPersonsCount.length === 0 && searchPerformedByPersonsCount">
+        <div class="alert alert-danger mt-3" role="alert">
+            No users were found with the specified number of people.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  

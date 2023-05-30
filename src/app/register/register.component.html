@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="column login">
+        <h1>Register</h1>
+        <form [formGroup]="registerForm" (ngSubmit)="OnSumbitRegister()">
+            <div class="input-container">
+                <input class="input-login" placeholder=" " type="text" formControlName="email">
+                <label class="label-container">Enter your email</label>
+            </div>
+            <div class="input-container">
+                <input class="input-login" placeholder=" " type="password" formControlName="password">
+                <label class="label-container">Password</label>
+            </div>
+            <button class="submit-button" type="submit">Sign up</button>
+        </form>
+    </div>
+    <div class="column image"></div>
+</div>

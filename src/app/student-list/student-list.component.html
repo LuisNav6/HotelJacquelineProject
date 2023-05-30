@@ -1,0 +1,77 @@
+<div class="row">
+  <div class="col-lg-12">
+    <div
+      class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
+    >
+      <h2 class="h2">Users List</h2>
+      <a
+        routerLink="/register-student"
+        class="btn btn-success"
+        *ngIf="hideWhenNoStudent"
+      >
+        Add User
+      </a>
+    </div>
+
+    <div class="pricing-header mx-auto">
+      <div class="no-data text-center" *ngIf="preLoader">
+        <!-- Preloader message or spinner -->
+      </div>
+
+      <div class="no-data text-center" *ngIf="noData">
+        <p class="nodata-msg">No user added yet!</p>
+        <a routerLink="/register-student" class="btn btn-success">Add User</a>
+      </div>
+
+      <div class="table-responsive" *ngIf="hideWhenNoStudent">
+        <table
+          class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg"
+        >
+          <thead>
+            <tr>
+              <th scope="col">User Id</th>
+              <th scope="col">User name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobile number</th>
+              <th scope="col">Check-In</th>
+              <th scope="col">Check-Out</th>
+              <th scope="col">Persons</th>
+              <th class="text-center" scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="
+                let u of user
+                  | paginate: { itemsPerPage: 8, currentPage: p };
+                let i = index
+              "
+            >
+              <th scope="row">{{ u.$key }}</th>
+              <td>{{ u.firstName }} {{ u.lastName }}</td>
+              <td>{{ u.email }}</td>
+              <td>{{ u.mobileNumber }}</td>
+              <td>{{ u.checkIn }}</td>
+              <td>{{ u.checkOut }}</td>
+              <td>{{ u.persons }}</td>
+              <td class="text-center action-block">
+                <span
+                  class="mr-2 btn btn-outline-primary btn-sm"
+                  routerLink="/edit-student/{{ u.$key }}"
+                  >Edit</span
+                >
+                <span
+                  class="btn btn-outline-danger btn-sm"
+                  (click)="deleteUser(u)"
+                  >Delete</span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

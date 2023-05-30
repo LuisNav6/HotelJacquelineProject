@@ -1,0 +1,27 @@
+<div class="container">
+  <div class="column login">
+    <h1>Login With SMS</h1>
+    <form [formGroup]="loginForm">
+      <div *ngIf="!showVerifyButton">
+        <div class="input-container">
+          <input class="input-login" placeholder=" " type="text" formControlName="phoneNumber">
+          <label class="label-container">Enter your Phone Number</label>
+        </div>
+        <button class="submit-button" type="submit" (click)="onClickCheckSend()">Send code</button>
+      </div>
+      <div *ngIf="showVerifyButton">
+        <div class="input-container">
+          <input class="input-login" placeholder=" " type="text" formControlName="code">
+          <label class="label-container">Insert your Code</label>
+        </div>
+        <button class="login-sms-cont" type="submit" (click)="onClickCheck()">Verify and Sign In</button>
+      </div>
+    </form>
+    <div class="recap-sty" id="recaptcha-container"></div>
+    <div class="mt-3">
+      <label> Don't have an account?
+        <a class="sign-up" routerLink="/register">Sign up</a> </label>
+    </div>
+  </div>
+  <div class="column image"></div>
+</div>
