@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../shared/user.service';
+import { UserService } from '../../shared/user.service';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';

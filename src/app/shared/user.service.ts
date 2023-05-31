@@ -99,7 +99,9 @@ export class UserService{
             this.router.navigate(['/main']);
         }).catch(error =>{
             console.log(error);
-            alert("Someting went wrong...");
+            this.toastr.error(
+                'Something went wrong ...'
+            );
         })
     }
 }
