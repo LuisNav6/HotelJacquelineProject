@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Radley&display=swap');
+
+.title-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    height: 100vh;
+    margin-top: 100px;
+    justify-content: center;
+}
+
+.title-container h1,
+h3 {
+    color: white;
+}
+
+.star-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.star-container fa-icon {
+    margin-right: 1rem;
+    color: white;
+}
+
+.container-main {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    min-height: 100%;
+    min-width: 100%;
+    background-image: url(/assets/imgs/fake/fake1.jpg);
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+}

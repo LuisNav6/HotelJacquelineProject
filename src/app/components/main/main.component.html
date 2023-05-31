@@ -1,11 +1,10 @@
 <app-header></app-header>
 <div flexLayout="row" fxFlex>
   <div>
-    <h1>Main Page</h1>
-      <div class="input-container">
-        <button class="submit-button" (click)="logOut()">Salir</button>
-    </div>
     <router-outlet></router-outlet>
+    <div class="input-container">
+      <button class="submit-button" (click)="logOut()">Salir</button>
+    </div>
   </div>
 </div>
 <app-footer flexLayout="column"></app-footer>

@@ -10,9 +10,10 @@ import { LoginSmsComponent } from './components/login-sms/login-sms.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MainComponent } from './components/main/main.component';
 import { AuthGuard } from './auth.guard';
+import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/main' },
+  { path: '', pathMatch: 'full', redirectTo: '/home' },
   { path: 'main', component: MainComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register-student', component: AddStudentComponent, canActivate: [AuthGuard] },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'queries', component: QueriesComponent, canActivate: [AuthGuard] },
   { path: 'login-sms', component: LoginSmsComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({

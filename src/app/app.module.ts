@@ -23,10 +23,12 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginSmsComponent } from './components/login-sms/login-sms.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MainComponent } from './components/main/main.component';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './components/home/home.component';
+import { SectionExperienceComponent } from './components/home/section-experience/section-experience.component';
+import { SectionHomeComponent } from './components/home/section-home/section-home.component';
+import { SectionSatisfyComponent } from './components/home/section-satisfy/section-satisfy.component';
+import { SharedModule } from './components/shared-components/shared.components.module';
 
 @NgModule({
   declarations: [
@@ -39,9 +41,10 @@ import { HomeComponent } from './components/home/home.component';
     LoginSmsComponent,
     RegisterComponent,
     MainComponent,
-    HeaderComponent,
-    FooterComponent,
-    HomeComponent
+    HomeComponent,
+    SectionExperienceComponent,
+    SectionHomeComponent,
+    SectionSatisfyComponent
   ],
   imports: [
     BrowserModule,
@@ -57,10 +60,10 @@ import { HomeComponent } from './components/home/home.component';
     FormsModule,
     NgxPaginationModule,
     FontAwesomeModule,
+    SharedModule,
   ],
   exports: [
-    HeaderComponent,
-    FooterComponent
+
   ],
   providers: [],
   bootstrap: [AppComponent],
