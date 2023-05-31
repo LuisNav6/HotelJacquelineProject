@@ -23,7 +23,10 @@ import { LoginComponent } from './components/login/login.component';
 import { LoginSmsComponent } from './components/login-sms/login-sms.component';
 import { RegisterComponent } from './components/register/register.component';
 import { MainComponent } from './components/main/main.component';
-
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +39,9 @@ import { MainComponent } from './components/main/main.component';
     LoginSmsComponent,
     RegisterComponent,
     MainComponent,
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +56,11 @@ import { MainComponent } from './components/main/main.component';
     ReactiveFormsModule,
     FormsModule,
     NgxPaginationModule,
+    FontAwesomeModule,
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent],

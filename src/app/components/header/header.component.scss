@@ -1,0 +1,79 @@
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 110px;
+    z-index: 999;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    position: relative; /* añade posición relativa para posicionar el elemento pseudoelemento */
+    overflow: hidden; /* añade overflow hidden para limitar el zoom */
+    transition: transform 0.3s ease-in-out; /* animación del zoom */
+}
+
+header a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) scaleX(0);
+    width: 100%;
+    height: 2px;
+    background-color: white;
+    transition: transform 0.3s ease-in-out; /* animación del transform */
+}
+
+header a:hover::after {
+    transform: translateX(-50%) scaleX(1) scaleY(1.2); /* aplica el zoom */
+    z-index: 1;
+}
+
+header a:hover {
+    background-color: transparent; /* quita el background-color para que solo se vea la barra */
+    transform: scale(1.1);
+}
+
+/* estilo de encabezado transparente */
+.transparent {
+    background-color: transparent !important;
+}
+
+/* estilo de encabezado con fondo negro */
+.black {
+    background-color: #0b161b !important;
+}
+
+/* estilo de contenido */
+.content {
+    margin-top: 60px;
+    /* altura del encabezado */
+}
+
+.logo {
+    width: 30%;
+    height: 55px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo img:hover{
+    transform: scale(1.1);
+}
+
+.logo img {
+    width: 375px;
+    height: 55px;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
