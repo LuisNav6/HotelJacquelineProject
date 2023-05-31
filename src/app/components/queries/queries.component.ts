@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from '../shared/student';
-import { CrudService } from '../shared/crud.service';
+import { User } from '../../shared/student';
+import { CrudService } from '../../shared/crud.service';
 
 @Component({
   selector: 'app-queries',

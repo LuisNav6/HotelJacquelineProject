@@ -11,19 +11,19 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
-
-import { AddStudentComponent } from './add-student/add-student.component';
-import { EditStudentComponent } from './edit-student/edit-student.component';
-import { StudentListComponent } from './student-list/student-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { QueriesComponent } from './queries/queries.component';
-import { LoginComponent } from './login/login.component';
-import { LoginSmsComponent } from './login-sms/login-sms.component';
-import { RegisterComponent } from './register/register.component';
-import { MainComponent } from './main/main.component';
+import { AddStudentComponent } from './components/add-student/add-student.component';
+import { EditStudentComponent } from './components/edit-student/edit-student.component';
+import { StudentListComponent } from './components/student-list/student-list.component';
+import { QueriesComponent } from './components/queries/queries.component';
+import { LoginComponent } from './components/login/login.component';
+import { LoginSmsComponent } from './components/login-sms/login-sms.component';
+import { RegisterComponent } from './components/register/register.component';
+import { MainComponent } from './components/main/main.component';
+
 
 @NgModule({
   declarations: [

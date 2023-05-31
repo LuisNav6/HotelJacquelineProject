@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CrudService } from '../shared/crud.service';
-import { User } from './../shared/student';
+import { CrudService } from '../../shared/crud.service';
+import { User } from '../../shared/student';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
