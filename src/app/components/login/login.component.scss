@@ -12,6 +12,14 @@
   overflow: hidden;
 }
 
+.center-cont{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  height: 100vh;
+}
+
 .column {
   padding: 20px;
 }

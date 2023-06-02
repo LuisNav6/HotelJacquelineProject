@@ -8,12 +8,12 @@ import { QueriesComponent } from './components/queries/queries.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginSmsComponent } from './components/login-sms/login-sms.component';
 import { RegisterComponent } from './components/register/register.component';
-import { MainComponent } from './components/main/main.component';
 import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/home' },
+  { path: '', pathMatch: 'full', redirectTo: '/home'},
+  { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register-student', component: AddStudentComponent, canActivate: [AuthGuard] },
   { path: 'view-students', component: StudentListComponent, canActivate: [AuthGuard] },

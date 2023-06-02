@@ -19,6 +19,7 @@ declare global {
 
 export class UserService{
     @Output() loggedIn: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() loggedOut: EventEmitter<boolean> = new EventEmitter<boolean>();
     constructor(private auth: AngularFireAuth, private router: Router, private toastr: ToastrService) {
         auth.authState.subscribe(user =>{
             console.log(user);
@@ -65,6 +66,7 @@ export class UserService{
     logOut(){
         return this.auth.signOut()
         .then(resp =>{
+            this.loggedOut.emit(true);
             this.toastr.warning(
                 'LogOut successfuly'
             );

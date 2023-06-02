@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { UserService } from '../../shared/user.service';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
@@ -9,11 +9,13 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
-  constructor(private auth:UserService, private router: Router, private afAuth: AngularFireAuth) { }
+  @Input() loggedIn: boolean;
+  @Input() loggedOut: boolean;
 
   isAdminLoggedIn: boolean = false;
-  
+  isRegularUser: boolean = false;
+
+  constructor(private auth:UserService, private router: Router, private afAuth: AngularFireAuth) { }
   ngOnInit(): void {
     this.afAuth.authState.subscribe(user => {
       // Verificar si el usuario está autenticado y si tiene el correo electrónico de administrador
@@ -25,6 +27,25 @@ export class MainComponent implements OnInit {
         this.isAdminLoggedIn = false;
         console.log("I'm not admin");
       }
+
+      this.auth.loggedIn.subscribe(loggedIn => {
+        if (loggedIn) {
+          this.isRegularUser = true;
+          console.log(loggedIn + "Usuario logeado");
+        } else {
+          this.isRegularUser = false;
+          console.log(loggedIn + "Null");
+        }
+      });
+
+      this.auth.loggedOut.subscribe(loggedOut => {
+        if(loggedOut){
+          this.isRegularUser = false;
+          console.log(loggedOut + "Usuario logOut")
+        }
+      })
+
+      
     });
   }
 

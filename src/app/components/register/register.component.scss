@@ -157,3 +157,10 @@
     background-repeat: no-repeat;
   }
   
+  .center-cont{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 100vh;
+  }

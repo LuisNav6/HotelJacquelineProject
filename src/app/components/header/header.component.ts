@@ -10,7 +10,7 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class HeaderComponent {
   isTransparent: boolean = true;
-
+  
   constructor(private auth:UserService, private router: Router) { }
 
   @HostListener('window:scroll', [])
