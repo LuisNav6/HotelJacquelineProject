@@ -28,7 +28,10 @@ import { HomeComponent } from './components/home/home.component';
 import { SectionExperienceComponent } from './components/home/section-experience/section-experience.component';
 import { SectionHomeComponent } from './components/home/section-home/section-home.component';
 import { SectionSatisfyComponent } from './components/home/section-satisfy/section-satisfy.component';
-import { SharedModule } from './components/shared-components/shared.components.module';
+import { FooterComponent } from './components/footer/footer.component';
+import { RouterModule } from '@angular/router';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { SharedModule } from './components/shared-components/shared.components.m
     HomeComponent,
     SectionExperienceComponent,
     SectionHomeComponent,
-    SectionSatisfyComponent
+    SectionSatisfyComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,10 +65,13 @@ import { SharedModule } from './components/shared-components/shared.components.m
     FormsModule,
     NgxPaginationModule,
     FontAwesomeModule,
-    SharedModule,
+    RouterModule,
+    FlexLayoutModule,
+    FontAwesomeModule
   ],
   exports: [
-
+    HeaderComponent,
+    FooterComponent
   ],
   providers: [],
   bootstrap: [AppComponent],
