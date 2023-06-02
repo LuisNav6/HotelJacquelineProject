@@ -23,7 +23,7 @@ export class AuthGuard implements CanActivate {
           } else {
             // Usuario no administrador, permitir acceso solo a la ruta principal
             console.log("Usuario Regular");
-            this.router.navigate(['/main']);
+            this.router.navigate(['/home']);
             return false;
           }
         } else {

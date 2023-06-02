@@ -32,6 +32,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './components/header/header.component';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { HeaderComponent } from './components/header/header.component';
     SectionSatisfyComponent,
     HeaderComponent,
     FooterComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

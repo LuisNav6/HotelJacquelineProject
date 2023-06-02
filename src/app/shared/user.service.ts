@@ -34,7 +34,7 @@ export class UserService{
                 'Login successfuly'
             );
             this.loggedIn.emit(true);
-            this.router.navigate(['/main']);
+            this.router.navigate(['/home']);
         }).catch(e =>{
             this.loggedIn.emit(false);
             this.toastr.error(
@@ -96,7 +96,7 @@ export class UserService{
             this.toastr.success(
                 'Sing In Accepted'
             );
-            this.router.navigate(['/main']);
+            this.router.navigate(['/home']);
         }).catch(error =>{
             console.log(error);
             this.toastr.error(
