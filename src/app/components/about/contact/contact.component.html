@@ -1,0 +1,27 @@
+<div class="container-home">
+    <div class="title-home">
+      <h1>Contact Us Today</h1>
+    </div>
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="container form-cont">
+      <div class="row">
+        <div class="col-4 input-cont py-2">
+          <input type="text" id="name" formControlName="name" placeholder="Name" />
+        </div>
+        <div class="col-4 input-cont py-2">
+          <input type="email" id="email" formControlName="email" placeholder="Email"/>
+        </div>
+        <div class="col-4 input-cont py-2">
+          <input type="text" id="phone" formControlName="phone" placeholder="Phone"/>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col input-cont">
+          <textarea id="message" formControlName="message" placeholder="Message"></textarea>
+        </div>
+      </div>
+      <div class="col-4 offset-md-4 btn-sub">
+        <button type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  

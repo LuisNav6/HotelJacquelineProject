@@ -1,0 +1,11 @@
+<div class="title-cont">
+    <div class="title-home">
+        <h1>Reveal </h1>
+        <h3>YOUR PERSONAL HEAVEN</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="img-container" *ngFor="let image of images">
+        <img [src]="image.url" (load)="onImageLoad($event)" />
+    </div>
+</div>

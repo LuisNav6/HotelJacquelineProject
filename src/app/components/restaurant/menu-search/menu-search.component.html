@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="title-home">
+      <h1>Savor your favorites</h1>
+    </div>
+    <div class="menu-deploy">
+      <!-- Table of Boostrap -->
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th colspan="2" class="title-cat">SeaFood</th>
+          </tr>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meal of meals_seaFood">
+            <td>{{ meal.strMeal }}</td>
+            <td><img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th colspan="2" class="title-cat">Meats</th>
+          </tr>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meal of meals_meats">
+            <td>{{ meal.strMeal }}</td>
+            <td><img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th colspan="2" class="title-cat">Desserts</th>
+          </tr>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meal of meals_dessert">
+            <td>{{ meal.strMeal }}</td>
+            <td><img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}"></td>
+          </tr>
+        </tbody>
+      </table>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th colspan="2" class="title-cat">Meats VIP</th>
+          </tr>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let meal of meals_soups">
+            <td>{{ meal.strMeal }}</td>
+            <td><img [src]="meal.strMealThumb" alt="{{ meal.strMeal }}"></td>
+          </tr>
+        </tbody>
+      </table>    
+    </div>
+  </div>

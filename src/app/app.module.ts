@@ -33,6 +33,22 @@ import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HeaderComponent } from './components/header/header.component';
 import { AdminComponent } from './components/admin/admin.component';
+import { AboutComponent } from './components/about/about.component';
+import { ContactComponent } from './components/about/contact/contact.component';
+import { MapComponent } from './components/about/map/map.component';
+import { MissionComponent } from './components/about/mission/mission.component';
+import { RoomsComponent } from './components/rooms/rooms.component';
+import { RoomTypesComponent } from './components/rooms/room-types/room-types.component';
+import { RestaurantComponent } from './components/restaurant/restaurant.component';
+import { MenuSearchComponent } from './components/restaurant/menu-search/menu-search.component';
+import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ExploreComponent } from './components/explore/explore.component';
+import { ExploreHomeComponent } from './components/explore/explore-home/explore-home.component';
+import { ImgExploreComponent } from './components/explore/img-explore/img-explore.component';
+import { VideoExploreComponent } from './components/explore/video-explore/video-explore.component';
+import { DomseguroPipe } from './components/explore/video-explore/domseguro.pipe';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +68,21 @@ import { AdminComponent } from './components/admin/admin.component';
     HeaderComponent,
     FooterComponent,
     AdminComponent,
+    AboutComponent,
+    ContactComponent,
+    MapComponent,
+    MissionComponent,
+    RoomsComponent,
+    RoomTypesComponent,
+    RestaurantComponent,
+    MenuSearchComponent,
+    RestaurantHomeComponent,
+    ExploreComponent,
+    ExploreHomeComponent,
+    ImgExploreComponent,
+    VideoExploreComponent,
+    DomseguroPipe,
+    ContactUsComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +100,8 @@ import { AdminComponent } from './components/admin/admin.component';
     FontAwesomeModule,
     RouterModule,
     FlexLayoutModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   exports: [
     HeaderComponent,

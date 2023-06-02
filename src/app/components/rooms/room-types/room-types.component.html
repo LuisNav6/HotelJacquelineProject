@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="title-home">
+        <h1>Relax in comfort</h1>
+        <h2>WITH OUR ROOMS</h2>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 p-3" *ngFor="let room of rooms">
+                <div class="card bg-dark-blue">
+                    <div class="img-container">
+                        <img class="card-img-top col-sm-12" src="{{room.url}}" alt="Card image cap">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-left">{{room.title | uppercase}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted text-left" style="font-weight: bold;"> Bed: {{room.bed |
+                            uppercase}} | Bath: {{room.bath | uppercase}}</h6>
+                        <p class="card-text text-left">{{room.desc}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
