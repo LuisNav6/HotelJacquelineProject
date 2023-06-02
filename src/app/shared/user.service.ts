@@ -22,7 +22,13 @@ export class UserService{
     @Output() loggedOut: EventEmitter<boolean> = new EventEmitter<boolean>();
     constructor(private auth: AngularFireAuth, private router: Router, private toastr: ToastrService) {
         auth.authState.subscribe(user =>{
-            console.log(user);
+            if(user){
+                this.loggedIn.emit(true);
+                console.log(user);
+            }else{
+                this.loggedIn.emit(false);
+                console.log(user);
+            }
         })
     }
 
@@ -34,10 +40,9 @@ export class UserService{
             this.toastr.success(
                 'Login successfuly'
             );
-            this.loggedIn.emit(true);
+            
             this.router.navigate(['/home']);
         }).catch(e =>{
-            this.loggedIn.emit(false);
             this.toastr.error(
                 'Invalid Data'
             );

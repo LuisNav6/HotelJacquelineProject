@@ -1,4 +1,4 @@
-import { Injectable} from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Observable } from 'rxjs';
@@ -10,7 +10,8 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class AuthGuard implements CanActivate {
 
-  constructor(private afAuth: AngularFireAuth, private router: Router, private toastr: ToastrService) {}
+  constructor(private afAuth: AngularFireAuth, private router: Router, private toastr: ToastrService) { }
+
   canActivate(): Observable<boolean> {
     return this.afAuth.authState.pipe(
       map(user => {
@@ -18,13 +19,18 @@ export class AuthGuard implements CanActivate {
           // Usuario autenticado
           if (user.email && user.email.toLowerCase() === 'admin@gmail.com') {
             // Usuario administrador, permitir acceso total
-            console.log("Admin dentro");
             return true;
           } else {
-            // Usuario no administrador, permitir acceso solo a la ruta principal
-            console.log("Usuario Regular");
-            this.router.navigate(['/home']);
-            return false;
+            // Usuario no administrador, permitir acceso solo a rutas específicas
+            const allowedRoutes: string[] = ['/home']; // Agrega las rutas a las que los usuarios regulares tienen acceso
+            const currentRoute: string = this.router.url;
+            if (allowedRoutes.includes(currentRoute)) {
+              return true;
+            } else {
+              console.log("Usuario Regular");
+              this.router.navigate(['/home']); // Redirige a la página de inicio de sesión para usuarios regulares
+              return false;
+            }
           }
         } else {
           // Usuario no autenticado, redirigir a la página de inicio de sesión
@@ -34,5 +40,6 @@ export class AuthGuard implements CanActivate {
         }
       })
     );
-  }  
+  }
 }
+

@@ -15,7 +15,10 @@ export class MainComponent implements OnInit {
   isAdminLoggedIn: boolean = false;
   isRegularUser: boolean = false;
 
-  constructor(private auth:UserService, private router: Router, private afAuth: AngularFireAuth) { }
+  specialRoutes: string[] = ['/login', '/register', '/login-sms', '/register-student', '/view-students', '/edit-student', '/queries']; // Agrega las rutas especiales donde no deseas mostrar el encabezado y el pie de página
+
+  constructor(private auth: UserService, private router: Router, private afAuth: AngularFireAuth) { }
+
   ngOnInit(): void {
     this.afAuth.authState.subscribe(user => {
       // Verificar si el usuario está autenticado y si tiene el correo electrónico de administrador
@@ -35,20 +38,23 @@ export class MainComponent implements OnInit {
         } else {
           this.isRegularUser = false;
           console.log(loggedIn + "Null");
+          if (this.isRegularUser) {
+            this.router.navigate(['/login']);
+          }
         }
       });
 
       this.auth.loggedOut.subscribe(loggedOut => {
-        if(loggedOut){
+        if (loggedOut) {
           this.isRegularUser = false;
           console.log(loggedOut + "Usuario logOut")
         }
-      })
-
-      
+      });
     });
   }
 
-  
-
+  isSpecialRoute(): boolean {
+    const currentRoute: string = this.router.url;
+    return this.specialRoutes.includes(currentRoute);
+  }
 }

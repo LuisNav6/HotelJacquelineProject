@@ -1,16 +1,19 @@
-<app-header *ngIf="isRegularUser"></app-header>
+<ng-container *ngIf="!isSpecialRoute()">
+  <app-header ></app-header>
+</ng-container>
+
 <!-- Main content -->
 <div flexLayout="row" fxFlex *ngIf="!isAdminLoggedIn">
   <div class="">
     <router-outlet></router-outlet>
   </div>
 </div>
+
 <div *ngIf="isAdminLoggedIn">
   <app-admin></app-admin>
-  <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4" *ngIf="isAdminLoggedIn">
-    <div class="inner-adjust center-content">
-      <router-outlet></router-outlet>
-    </div>
-  </main>
+
 </div>
-<app-footer *ngIf="isRegularUser" flexLayout="column"></app-footer>
+
+<ng-container *ngIf="!isSpecialRoute()">
+  <app-footer  flexLayout="column"></app-footer>
+</ng-container>

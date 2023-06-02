@@ -21,7 +21,6 @@ const routes: Routes = [
   { path: 'queries', component: QueriesComponent, canActivate: [AuthGuard] },
   { path: 'login-sms', component: LoginSmsComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'home', component: HomeComponent },
 ];
 
 @NgModule({
