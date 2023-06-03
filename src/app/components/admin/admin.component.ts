@@ -17,7 +17,7 @@ export class AdminComponent implements OnInit {
   logOut(){
     this.auth.logOut()
     .then(() =>{
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }).catch(e => console.log(e));
   }
 }
