@@ -6,7 +6,7 @@
       <img src="assets/imgs/Logo-Hotel-low.png" alt="">
     </div>
     <a routerLink="/about">About us</a>
-    <a routerLink="/book">Contact us</a>
+    <a routerLink="/contact-us">Contact us</a>
     <a *ngIf="!isRegularUser" routerLink="/login"> Login </a>
     <a *ngIf="isRegularUser" (click)="logOut()" routerLink="/login"> Log Out</a>
 </header>

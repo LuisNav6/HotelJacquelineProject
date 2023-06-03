@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="title-container">
+        <h3>We’d love to hear from you.
+            Just choose the most convenient method and we’ll get back to you as soon as we can.</h3>
+        <p>Retorno Cedros 4, Rincón de Guayabitos<br>
+            México , 63727 <br>
+            555 555 555 <br>
+            hoteljacqueline@gmail.com
+        </p>
+        <div class="social-icons">
+            <a href="#"><fa-icon [icon]="faFacebook" class="enve face"></fa-icon></a>
+            <a href="#"><fa-icon [icon]="faTwitter" class="enve tw"></fa-icon></a>
+            <a href="#"><fa-icon [icon]="faInstagram" class="enve insta"></fa-icon></a>
+        </div>
+    </div>
+    
+    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-cont">
+        <div class="py-2 input-cont">
+            <input type="text" id="name" formControlName="name" placeholder="Name" />
+        </div>
+        <div class="py-2 input-cont">
+            <input type="email" id="email" formControlName="email" placeholder="Email" />
+        </div>
+        <div class="py-2 input-cont">
+            <input type="text" id="phone" formControlName="phone" placeholder="Phone" />
+        </div>
+        <div class="py-3 btn-sub">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+    
+</div>

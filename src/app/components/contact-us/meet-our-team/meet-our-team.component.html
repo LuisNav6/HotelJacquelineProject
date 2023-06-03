@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="title-home">
+        <h1>Meet Our Team of Developers</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-12" *ngFor="let person of names">
+            <div class="card bg-dark-blue">
+                <div class="img-container">
+                    <img class="card-img-top col-md-6 col-sm-12" src="{{person.url}}" alt="Card image cap">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{person.name | uppercase}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted" style="font-weight: bold;">{{person.charge | uppercase}}</h6>
+                    <p class="card-text">{{person.cardText}}</p>
+                    <div class="social-icons">
+                        <a href="#"><fa-icon [icon]="faFacebook" class="enve face"></fa-icon></a>
+                        <a href="#"><fa-icon [icon]="faTwitter" class="enve tw"></fa-icon></a>
+                        <a href="#"><fa-icon [icon]="faInstagram" class="enve insta"></fa-icon></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

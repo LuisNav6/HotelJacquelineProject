@@ -1,0 +1,78 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: flex-start;
+    padding: 60px;
+    gap: 50px;
+    padding-right: 60px;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: #072230;
+    margin: 0 auto;
+}
+
+.title-home h1 {
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    letter-spacing: 0.15em;
+    font-family: 'Radley', serif;
+}
+
+.bg-dark-blue {
+    background-color: rgb(231, 241, 250);
+    /* Color de fondo azul oscuro */
+    text-align: center;
+}
+
+.bg-dark-blue img {
+    height: 100%;
+    width: 100%;
+    min-height: 350px;
+    min-width: 350px;
+    border-radius: 50%; /* Hace que la imagen tenga forma circular */
+    object-fit: cover; /* Ajusta la imagen al contenedor */
+    display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+.img-container {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 450px; /* Establece una altura fija para el contenedor */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que sobresalga del contenedor */
+}
+
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2rem;
+
+}
+
+.social-icons a:hover {
+    transform: scale(1.2);
+}
+
+.social-icons a {
+    transition: transform 0.3s ease-in-out;
+}
+
+.insta:hover {
+    color: #E1306C;
+}
+
+fa-icon{
+    color: #072230;
+    cursor: pointer;
+}
+.tw:hover{
+    color: #83a5ee;
+}
+  
+.face:hover {
+    color: #3B5998;
+}

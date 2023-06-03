@@ -14,6 +14,7 @@ import { AboutComponent } from './components/about/about.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { ExploreComponent } from './components/explore/explore.component';
+import { ContactUsComponent } from './components/contact-us/contact-us.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'rooms', component:  RoomsComponent},
   { path: 'explore', component: ExploreComponent },
   { path: 'restaurant', component: RestaurantComponent },
-  { path: 'book', component: RegisterComponent },
+  { path: 'contact-us', component: ContactUsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register-student', component: AddStudentComponent, canActivate: [AuthGuard] },
   { path: 'view-students', component: StudentListComponent, canActivate: [AuthGuard] },

@@ -49,6 +49,8 @@ import { ImgExploreComponent } from './components/explore/img-explore/img-explor
 import { VideoExploreComponent } from './components/explore/video-explore/video-explore.component';
 import { DomseguroPipe } from './components/explore/video-explore/domseguro.pipe';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { FormBookComponent } from './components/contact-us/form-book/form-book.component';
+import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet-our-team.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { ContactUsComponent } from './components/contact-us/contact-us.component
     ImgExploreComponent,
     VideoExploreComponent,
     DomseguroPipe,
-    ContactUsComponent
+    ContactUsComponent,
+    FormBookComponent,
+    MeetOurTeamComponent
   ],
   imports: [
     BrowserModule,
