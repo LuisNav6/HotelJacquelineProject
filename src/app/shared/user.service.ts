@@ -20,10 +20,13 @@ declare global {
 export class UserService{
     @Output() loggedIn: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() loggedOut: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() userEmail: EventEmitter<string> = new EventEmitter<string>();
+
     constructor(private auth: AngularFireAuth, private router: Router, private toastr: ToastrService) {
         auth.authState.subscribe(user =>{
             if(user){
                 this.loggedIn.emit(true);
+                this.userEmail.emit(user.email);
                 console.log(user);
             }else{
                 this.loggedIn.emit(false);

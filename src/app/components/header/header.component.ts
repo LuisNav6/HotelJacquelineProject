@@ -9,10 +9,12 @@ import { UserService } from 'src/app/shared/user.service';
 })
 export class HeaderComponent implements OnInit {
   @Input() loggedIn: boolean;
-
+  @Input() userEmail: string;
+  
   isTransparent: boolean = true;
   isRegularUser: boolean = false;
   showMenu: boolean = false;
+  userEmailHeader: string = '';
 
   constructor(private auth: UserService, private router: Router) {}
 
@@ -29,15 +31,30 @@ export class HeaderComponent implements OnInit {
     this.auth.loggedIn.subscribe((loggedIn) => {
       if (loggedIn) {
         this.isRegularUser = true;
-        console.log(loggedIn + 'Usuario logeado');
+        console.log(loggedIn + ' Usuario logeado');
       } else {
         this.isRegularUser = false;
-        console.log(loggedIn + 'Null');
+        console.log(loggedIn + ' Null');
         if (this.isRegularUser) {
           this.router.navigate(['/login']);
         }
       }
     });
+    this.auth.userEmail.subscribe((userEmail) => {
+      this.userEmailHeader = userEmail;
+      console.log(this.userEmailHeader);
+    });
+  }
+
+  getMenuContainerWidth(): number {
+    // Definir un ancho mínimo para el contenedor del menú
+    const minWidth = 150;
+    // Obtener la longitud del correo electrónico
+    const emailLength = this.userEmailHeader ? this.userEmailHeader.length : 0;
+    // Calcular el ancho basado en la longitud del correo electrónico
+    const width = minWidth + emailLength * 10; // Puedes ajustar el valor multiplicativo según tus necesidades
+    // Retornar el ancho calculado
+    return width;
   }
 
   toggleMenu() {

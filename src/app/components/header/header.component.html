@@ -9,9 +9,9 @@
   <a routerLink="/about">About us</a>
   <a routerLink="/contact-us">Contact us</a>
 
-  <div class="menu-container" *ngIf="isRegularUser">
-    <div class="username" (click)="toggleMenu()">Username</div>
-    <div class="menu" *ngIf="showMenu">
+  <div class="menu-container" *ngIf="isRegularUser" >
+    <div class="username" (click)="toggleMenu()">{{userEmailHeader}}</div>
+    <div class="menu" *ngIf="showMenu" >
       <a routerLink="/book">Book</a>
       <a (click)="logOut()" routerLink="/login">Log Out</a>
     </div>
