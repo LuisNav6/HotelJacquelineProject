@@ -1,18 +1,16 @@
-<ng-container *ngIf="!isSpecialRoute()">
-  <app-header ></app-header>
-</ng-container>
-
 <!-- Main content -->
 <div flexLayout="row" fxFlex *ngIf="!isAdminLoggedIn">
+  <ng-container *ngIf="!isSpecialRoute()">
+    <app-header ></app-header>
+  </ng-container>
   <div class="">
     <router-outlet></router-outlet>
   </div>
+  <ng-container *ngIf="!isSpecialRoute()">
+    <app-footer  flexLayout="column"></app-footer>
+  </ng-container>
 </div>
 
 <div *ngIf="isAdminLoggedIn">
   <app-admin></app-admin>
 </div>
-
-<ng-container *ngIf="!isSpecialRoute()">
-  <app-footer  flexLayout="column"></app-footer>
-</ng-container>

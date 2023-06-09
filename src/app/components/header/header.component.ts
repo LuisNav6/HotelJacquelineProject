@@ -11,6 +11,7 @@ export class HeaderComponent implements OnInit {
   @Input() loggedIn: boolean;
   @Input() userEmail: string;
   
+  isAdminView: boolean = false;
   isTransparent: boolean = true;
   isRegularUser: boolean = false;
   showMenu: boolean = false;
