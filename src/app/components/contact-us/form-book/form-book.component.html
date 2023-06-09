@@ -14,15 +14,15 @@
         </div>
     </div>
     
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="form-cont">
+    <form [formGroup]="data" (ngSubmit)="sendEmail()" class="form-cont">
         <div class="py-2 input-cont">
-            <input type="text" id="name" formControlName="name" placeholder="Name" />
+            <input type="text" id="name" formControlName="email" placeholder="Email" />
         </div>
         <div class="py-2 input-cont">
-            <input type="email" id="email" formControlName="email" placeholder="Email" />
+            <input type="email" id="email" formControlName="about" placeholder="Subject" />
         </div>
         <div class="py-2 input-cont">
-            <input type="text" id="phone" formControlName="phone" placeholder="Phone" />
+            <textarea  placeholder="Mssg" cols="63" rows="4" formControlName="mssg"></textarea>
         </div>
         <div class="py-3 btn-sub">
             <button type="submit">Submit</button>
