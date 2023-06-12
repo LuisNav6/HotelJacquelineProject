@@ -40,12 +40,17 @@ export class UserService{
         return this.auth.signInWithEmailAndPassword(user,pass)
         .then(res => {
             console.log(res);
+            this.loggedIn.emit(true);
+            this.userEmail.emit(user);
+            console.log(user);
             this.toastr.success(
                 'Login successfuly'
             );
             
             this.router.navigate(['/home']);
         }).catch(e =>{
+            this.loggedIn.emit(false);
+            console.log(user);
             this.toastr.error(
                 'Invalid Data'
             );
@@ -86,6 +91,8 @@ export class UserService{
         return this.auth.signInWithPhoneNumber(phoneNumber, appVerified)
         .then(resp =>{
             window.confirmationResult = resp;
+            this.userEmail.emit(phoneNumber);
+            console.log(phoneNumber);
             this.toastr.success(
                 'Code Sended...'
             );
@@ -103,6 +110,7 @@ export class UserService{
         .then((res: any) =>{
             let license = firebase.auth.PhoneAuthProvider.credential(window.confirmationResult.verificationId, code); // Guardamos la confirmacion para enviarla a FireBase
             this.auth.signInWithCredential(license); // Logeo con el codigo
+            this.loggedIn.emit(true);
             this.toastr.success(
                 'Sing In Accepted'
             );
