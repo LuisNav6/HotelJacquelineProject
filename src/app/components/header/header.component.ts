@@ -1,6 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
+import { TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-header',

@@ -51,6 +51,11 @@ import { DomseguroPipe } from './components/explore/video-explore/domseguro.pipe
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FormBookComponent } from './components/contact-us/form-book/form-book.component';
 import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet-our-team.component';
+import { QueriUserComponent } from './components/queri-user/queri-user.component';
+import { BookComponent } from './components/book/book.component';
+import { BookFormComponent } from './components/book/book-form/book-form.component';
+import { SatisfactionFormComponent } from './components/book/satisfaction-form/satisfaction-form.component';
+import { QueriUserFormComponent } from './components/queri-user/queri-user-form/queri-user-form.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +91,12 @@ import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet
     DomseguroPipe,
     ContactUsComponent,
     FormBookComponent,
-    MeetOurTeamComponent
+    MeetOurTeamComponent,
+    QueriUserComponent,
+    BookComponent,
+    BookFormComponent,
+    SatisfactionFormComponent,
+    QueriUserFormComponent
   ],
   imports: [
     BrowserModule,

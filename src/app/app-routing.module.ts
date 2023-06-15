@@ -15,10 +15,14 @@ import { RoomsComponent } from './components/rooms/rooms.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { QueriUserComponent } from './components/queri-user/queri-user.component';
+import { BookComponent } from './components/book/book.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
   { path: 'home', component: HomeComponent},
+  {path: 'queri-user', component: QueriUserComponent},
+  {path: 'book', component: BookComponent},
   { path: 'about', component: AboutComponent },
   { path: 'rooms', component:  RoomsComponent},
   { path: 'explore', component: ExploreComponent },

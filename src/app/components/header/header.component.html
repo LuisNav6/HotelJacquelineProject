@@ -13,6 +13,7 @@
     <div class="username" (click)="toggleMenu()">{{userEmailHeader}}</div>
     <div class="menu" *ngIf="showMenu" >
       <a routerLink="/book">Book</a>
+      <a routerLink="/queri-user">Reservations</a>
       <a (click)="logOut()" routerLink="/login">Log Out</a>
     </div>
   </div>
