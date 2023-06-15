@@ -29,7 +29,6 @@ export class FormBookComponent implements OnInit{
     })
   }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
   sendEmail() {

@@ -1,0 +1,60 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+            <h2 class="h2">Reservations</h2>
+        </div>
+        <div class="my-4 table-responsive">
+            <h3>Query by email</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <input type="text" class="form-control" [(ngModel)]="email" placeholder="xxxx@gmail.com">
+                </div>
+                <div class="col-md-4">
+                    <button class="btn btn-primary" (click)="searchUsersByEmail()">Buscar</button>
+                </div>
+            </div>
+            <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg"
+                *ngIf="usersByEmail.length > 0">
+                <thead>
+                    <tr>
+                        <th scope="col">User name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Mobile number</th>
+                        <th scope="col">Check-In</th>
+                        <th scope="col">Check-Out</th>
+                        <th scope="col">Persons</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of usersByEmail">
+                        <td>{{ user.firstName }} {{ user.lastName }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.mobileNumber }}</td>
+                        <td>{{ user.checkIn }}</td>
+                        <td>{{ user.checkOut }}</td>
+                        <td>{{ user.persons }}</td>
+                        <td class="text-center action-block">
+                            <span class="btn btn-outline-danger btn-sm" (click)="deleteUser(user)">Delete</span>
+                            <button (click)="generar(user)" class="btn btn-outline-success btn-sm">Generate QR
+                                code</button>
+                        </td>
+                        </tr>
+                </tbody>
+            </table>
+            <div *ngIf="usersByEmail.length === 0 && searchPerformedByEmail">
+                <div class="alert alert-danger mt-3" role="alert">
+                    No users were found with the specified email.
+                </div>
+            </div>
+            <div class="cajaQR">
+                <div *ngIf="qrCodeUrl" class="cajaQR qr-container">
+                    <h3 class="h2">QR code of the selected user</h3>
+                    <div class="qr-image">
+                        <img [src]="qrCodeUrl" alt="Código QR">
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
