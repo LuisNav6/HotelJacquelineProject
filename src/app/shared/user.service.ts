@@ -25,12 +25,7 @@ export class UserService{
     constructor(private auth: AngularFireAuth, private router: Router, private toastr: ToastrService) {
         auth.authState.subscribe(user =>{
             if(user){
-                this.loggedIn.emit(true);
                 this.userEmail.emit(user.email);
-                console.log(user);
-            }else{
-                this.loggedIn.emit(false);
-                console.log(user);
             }
         })
     }
