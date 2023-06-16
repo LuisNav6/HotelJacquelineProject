@@ -8,7 +8,6 @@
   </div>
   <a routerLink="/about">About us</a>
   <a routerLink="/contact-us">Contact us</a>
-
   <div class="menu-container" *ngIf="isRegularUser" >
     <div class="username" (click)="toggleMenu()">{{userEmailHeader}}</div>
     <div class="menu" *ngIf="showMenu" >

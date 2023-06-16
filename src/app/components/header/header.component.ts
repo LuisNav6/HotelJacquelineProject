@@ -33,6 +33,7 @@ export class HeaderComponent implements OnInit {
     this.auth.loggedIn.subscribe((loggedIn) => {
       if (loggedIn) {
         this.isRegularUser = true;
+        console.log(this.isRegularUser);
         console.log(loggedIn + ' Usuario logeado');
       } else {
         this.isRegularUser = false;
