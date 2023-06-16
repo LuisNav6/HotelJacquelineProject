@@ -18,4 +18,5 @@
   </div>
 
   <a *ngIf="!isRegularUser" routerLink="/login">Login</a>
+  <input type="text" [(ngModel)]="searchTerm" (keydown.enter)="handleEnterKey()" (input)="filterItems()" placeholder="Search">
 </header>

@@ -1,7 +1,48 @@
-<div class="container-main">
+<ng-container *ngIf="mostrarImagenes; else sinImag">
+  <div class="container-main">
     <div class="title-container">
-        <h1>Hotel Rooms </h1>
-        <h3>Experience comfort and luxury in our elegant rooms</h3>
+      <h1 [style.fontSize.px]="fontSizeh1">{{ 'Hotel Rooms' | customUppercase | uppercase }}</h1>
+      <h3 [style.fontSize.px]="fontSizeh3">Experience comfort and luxury in our elegant rooms</h3>
     </div>
+  </div>
+</ng-container>
+<ng-template #sinImag>
+  <div class="container-main2">
+    <div class="title-container">
+      <h1 [style.fontSize.px]="fontSizeh1">{{ 'Hotel Rooms' | customUppercase | uppercase }}</h1>
+      <h3 [style.fontSize.px]="fontSizeh3">Experience comfort and luxury in our elegant rooms</h3>
+    </div>
+  </div>
+</ng-template>
+<div class="container">
+  <div class="title-home">
+    <h1 [style.fontSize.px]="fontSizeh1">{{ 'Relax in comfort' | lowercase }}</h1>
+    <h2 [style.fontSize.px]="fontSizeh2">WITH OUR ROOMS</h2>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 p-3" *ngFor="let room of rooms">
+        <div class="card bg-dark-blue">
+          <ng-container *ngIf="mostrarImagenes; else sinImagen">
+            <div class="img-container">
+              <img class="card-img-top col-sm-12" src="{{ room.url }}" alt="Card image cap">
+            </div>
+          </ng-container>
+          <ng-template #sinImagen>
+            <!--<img class="card-img-top col-sm-12" src="{{ room.url }}" alt="Card image cap" id="imagen-negra">-->
+            <div class="color-rect"></div>
+          </ng-template>
+          <div class="card-body">
+            <h5 class="card-title text-left" [style.fontSize.px]="fontSizeh5">
+              {{ room.title | customUppercase  }}
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted text-left" style="font-weight: bold;" [style.fontSize.px]="fontSizeh6">
+              Bed: {{ room.bed | uppercase }} | Bath: {{ room.bath | number: '1.1' }}
+            </h6>
+            <p class="card-text text-left" [style.fontSize.px]="fontSizep">{{ room.desc | lowercase }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-<app-room-types></app-room-types>
+
+    <app-access (fontSizeChanged)="onFontSizeChanged($event)" (mostrarImagenesChanged)="onMostrarImagenesChanged($event)" [mostrarImagenes]="mostrarImagenes"></app-access>

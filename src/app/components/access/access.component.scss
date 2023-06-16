@@ -1,0 +1,91 @@
+.containerS {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+
+  }
+  
+  .mat-menu-overlay {
+    position: absolute;
+  }
+  
+  #boton-circular {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #b2ebf2; /* Color azul claro */
+    border: 3px solid #fff;
+  
+    padding-right: 2px;
+   
+    display: flex;
+    align-items: center;
+  }
+ 
+  .icono-grande {
+    transform: scale(3.5);
+    
+    color: white;
+
+    margin-left: 55%;
+  }
+
+  .letra{
+    display: flex;
+    align-items: center;
+    text-align: center;
+  }
+
+  .btn{
+    width: 40%;
+  }
+
+  #menu {
+    background-color: #b2ebf2; /* Color de fondo del botón */
+    color: white; /* Color del texto del botón */
+    font-weight: bold; /* Fuente en negrita */
+    font-family: Arial, sans-serif; /* Cambia la fuente según tus preferencias */
+    transition: background-color 0.3s; /* Transición suave al cambiar el color de fondo */
+    font-family: Arial, sans-serif; /* Cambia la fuente según tus preferencias */
+  font-weight: bold; /* Fuente en negrita */
+  border: 1px solid #fff;
+  
+  }
+  
+  #menu:hover {
+    background-color:#2493a2 ; /* Color de fondo al pasar el cursor sobre el botón */
+    color:white; /* Color del texto al pasar el cursor sobre el botón */
+    font-family: Arial, sans-serif; /* Cambia la fuente según tus preferencias */
+  font-weight: bold; /* Fuente en negrita */
+  }
+ 
+  .titulo {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+    background-color: #b2ebf2;
+  }
+  
+  .lector {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .accion {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  .icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .texto {
+    width: 70%;
+  }
+
+  

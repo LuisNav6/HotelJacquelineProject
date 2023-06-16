@@ -1,7 +1,7 @@
 import { Component, HostListener, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/shared/user.service';
-import { TemplateRef } from '@angular/core';
+
 
 @Component({
   selector: 'app-header',
@@ -17,8 +17,20 @@ export class HeaderComponent implements OnInit {
   isRegularUser: boolean = false;
   showMenu: boolean = false;
   userEmailHeader: string = '';
+  searchTerm: string = '';
+  filteredItems: { label: string, link: string }[] = [];
+  
+  menuItems: { label: string, link: string }[] = [
+    { label: 'Rooms', link: '/rooms' },
+    { label: 'Explore', link: '/explore' },
+    { label: 'Restaurant', link: '/restaurant' },
+    { label: 'About us', link: '/about' },
+    { label: 'Contact us', link: '/contact-us' }
+  ];
 
-  constructor(private auth: UserService, private router: Router) {}
+  constructor(private auth: UserService, private router: Router) {
+    this.filteredItems = this.menuItems;
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -33,7 +45,6 @@ export class HeaderComponent implements OnInit {
     this.auth.loggedIn.subscribe((loggedIn) => {
       if (loggedIn) {
         this.isRegularUser = true;
-        console.log(this.isRegularUser);
         console.log(loggedIn + ' Usuario logeado');
       } else {
         this.isRegularUser = false;
@@ -50,13 +61,9 @@ export class HeaderComponent implements OnInit {
   }
 
   getMenuContainerWidth(): number {
-    // Definir un ancho mínimo para el contenedor del menú
     const minWidth = 150;
-    // Obtener la longitud del correo electrónico
     const emailLength = this.userEmailHeader ? this.userEmailHeader.length : 0;
-    // Calcular el ancho basado en la longitud del correo electrónico
-    const width = minWidth + emailLength * 10; // Puedes ajustar el valor multiplicativo según tus necesidades
-    // Retornar el ancho calculado
+    const width = minWidth + emailLength * 10;
     return width;
   }
 
@@ -71,5 +78,39 @@ export class HeaderComponent implements OnInit {
         this.router.navigate(['/home']);
       })
       .catch((e) => console.log(e));
+  }
+
+  filterItems() {
+    if (this.searchTerm.trim() === '') {
+      this.filteredItems = this.menuItems;
+    } else {
+      this.filteredItems = this.menuItems.filter(item =>
+        item.label.toLowerCase().includes(this.searchTerm.toLowerCase())
+      );
+    }
+  }
+
+  handleEnterKey() {
+    const searchTermLowerCase = this.searchTerm.toLowerCase();
+  
+    if (searchTermLowerCase === 'rooms') {
+      this.router.navigate(['/rooms']);
+    } else if (searchTermLowerCase === 'explore') {
+      this.router.navigate(['/explore']);
+    } else if (searchTermLowerCase === 'restaurant') {
+      this.router.navigate(['/restaurant']);
+    } else if (searchTermLowerCase === 'about us' || searchTermLowerCase === 'about') {
+      this.router.navigate(['/about']);
+    } else if (searchTermLowerCase === 'contact us' || searchTermLowerCase === 'contact') {
+      this.router.navigate(['/contact-us']);
+    } else if (searchTermLowerCase === 'home') {
+      this.router.navigate(['/home']);
+    } else {
+      this.router.navigate([], { fragment: searchTermLowerCase });
+    }
+  }
+
+  clearSearchTerm(): void {
+    this.searchTerm = '';
   }
 }

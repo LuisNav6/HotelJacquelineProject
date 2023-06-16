@@ -7,4 +7,5 @@ export interface User {
   checkIn: Date;
   checkOut: Date;
   persons: number;
+  roomType: string;
 }

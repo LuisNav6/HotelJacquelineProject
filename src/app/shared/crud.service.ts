@@ -14,6 +14,7 @@ export class CrudService {
     this.db.object('/').valueChanges().subscribe((data) => {
       console.log(data);
     });
+    this.UsersRef = this.db.list('users-list'); // Inicializa UsersRef en el constructor
   }
 
   // Create User
@@ -90,5 +91,9 @@ export class CrudService {
         this.UsersRef.remove(user.key);
       }
     });
+  }
+
+  GetReservations() {
+    return this.db.list('users-list').valueChanges();
   }
 }

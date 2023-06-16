@@ -56,6 +56,12 @@ import { BookComponent } from './components/book/book.component';
 import { BookFormComponent } from './components/book/book-form/book-form.component';
 import { SatisfactionFormComponent } from './components/book/satisfaction-form/satisfaction-form.component';
 import { QueriUserFormComponent } from './components/queri-user/queri-user-form/queri-user-form.component';
+import { AccessComponent } from './components/access/access.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+
+import { CustomUppercasePipe } from './shared/custom-uppercase.pipe';
 
 @NgModule({
   declarations: [
@@ -96,7 +102,10 @@ import { QueriUserFormComponent } from './components/queri-user/queri-user-form/
     BookComponent,
     BookFormComponent,
     SatisfactionFormComponent,
-    QueriUserFormComponent
+    QueriUserFormComponent,
+    AccessComponent,
+    CustomUppercasePipe
+
   ],
   imports: [
     BrowserModule,
@@ -115,7 +124,10 @@ import { QueriUserFormComponent } from './components/queri-user/queri-user-form/
     RouterModule,
     FlexLayoutModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatIconModule
   ],
   exports: [
     HeaderComponent,
