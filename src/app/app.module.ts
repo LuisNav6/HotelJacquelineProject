@@ -42,7 +42,7 @@ import { RoomTypesComponent } from './components/rooms/room-types/room-types.com
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { MenuSearchComponent } from './components/restaurant/menu-search/menu-search.component';
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ExploreHomeComponent } from './components/explore/explore-home/explore-home.component';
 import { ImgExploreComponent } from './components/explore/img-explore/img-explore.component';
@@ -51,6 +51,9 @@ import { DomseguroPipe } from './components/explore/video-explore/domseguro.pipe
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FormBookComponent } from './components/contact-us/form-book/form-book.component';
 import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet-our-team.component';
+import { SpinnerModule } from './shared/spinner/spinner.module';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
+import { ChartsComponent } from './components/charts/charts.component';
 
 @NgModule({
   declarations: [
@@ -86,7 +89,8 @@ import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet
     DomseguroPipe,
     ContactUsComponent,
     FormBookComponent,
-    MeetOurTeamComponent
+    MeetOurTeamComponent,
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -105,13 +109,16 @@ import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet
     RouterModule,
     FlexLayoutModule,
     FontAwesomeModule,
-    HttpClientModule
+    HttpClientModule,
+    SpinnerModule
   ],
   exports: [
     HeaderComponent,
     FooterComponent
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

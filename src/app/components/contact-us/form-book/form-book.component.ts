@@ -33,7 +33,7 @@ export class FormBookComponent implements OnInit{
   }
 
   sendEmail() {
-    Notiflix.Loading.circle('Loading...');
+    //Notiflix.Loading.circle('Loading...');
     // Recuperamos los datos del form
     let params = {
       email: this.data.value.email,
@@ -45,7 +45,7 @@ export class FormBookComponent implements OnInit{
     console.log(params);
     this.httpClient.post('https://test-email-api.onrender.com/send', params).subscribe((res: any) => {
       console.log(res);
-      Notiflix.Loading.remove();
+      //Notiflix.Loading.remove();
       this.data.reset();
       if (res.ok) {
         Notiflix.Notify.success('Successfully sent');

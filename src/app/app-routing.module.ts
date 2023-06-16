@@ -15,6 +15,7 @@ import { RoomsComponent } from './components/rooms/rooms.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
+import { ChartsComponent } from './components/charts/charts.component';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'queries', component: QueriesComponent, canActivate: [AuthGuard] },
   { path: 'login-sms', component: LoginSmsComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'charts', component: ChartsComponent },
 ];
 
 @NgModule({
