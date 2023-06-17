@@ -1,5 +1,5 @@
 export const environment = {
-  production: false,
+  production: true,
   firebaseConfig: {
     apiKey: "AIzaSyBkyYzflxqwTaYAjWVhu7i_4AauN0ZS8Mg",
     authDomain: "reservaciones-adf27.firebaseapp.com",
