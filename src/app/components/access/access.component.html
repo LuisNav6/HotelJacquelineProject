@@ -1,46 +1,50 @@
 <div class="containerS">
-    <button mat-button [matMenuTriggerFor]="menu" class="mat-menu-trigger" id="boton-circular"><mat-icon class="icono-grande mat-icon-center">accessibility</mat-icon></button>
-    <mat-menu #menu="matMenu" class="mat-menu-overlay">
-      <div class="titulo">READER</div>
-      <div class="lector" id="menu">
-        <div class="accion">
-          <div class="texto">
-            <button mat-menu-item (click)="startReading()"><mat-icon>record_voice_over</mat-icon><span>Start</span></button>
-          </div>
-          <div class="texto">
-            <button mat-menu-item (click)="pauseReading()"><mat-icon>pause</mat-icon><span>Pause</span></button>
-          </div>
+  <button mat-button [matMenuTriggerFor]="menu" class="mat-menu-trigger" id="boton-circular"><mat-icon
+      class="icono-grande mat-icon-center">accessibility</mat-icon></button>
+  <mat-menu #menu="matMenu" class="mat-menu-overlay">
+    <div class="titulo">READER</div>
+    <div class="lector" id="menu">
+      <div class="accion">
+        <div class="texto">
+          <button mat-menu-item
+            (click)="startReading()"><mat-icon>record_voice_over</mat-icon><span>Start</span></button>
+        </div>
+        <div class="texto">
+          <button mat-menu-item (click)="pauseReading()"><mat-icon>pause</mat-icon><span>Pause</span></button>
         </div>
       </div>
-      <div class="lector" id="menu">
-        <div class="accion">
-          <div class="texto">
-            <button mat-menu-item (click)="resumeReading()"><mat-icon>play_arrow</mat-icon><span>Play</span></button>
-          </div>
-          <div class="texto">
-            <button mat-menu-item (click)="stopReading()"><mat-icon>stop</mat-icon><span>Stop</span></button>
-          </div>
+    </div>
+    <div class="lector" id="menu">
+      <div class="accion">
+        <div class="texto">
+          <button mat-menu-item (click)="resumeReading()"><mat-icon>play_arrow</mat-icon><span>Play</span></button>
+        </div>
+        <div class="texto">
+          <button mat-menu-item (click)="stopReading()"><mat-icon>stop</mat-icon><span>Stop</span></button>
         </div>
       </div>
-      <div class="titulo">FONT</div>
-      <div class="letra" id="menu">
-        <button mat-menu-item class="let btn" (click)="decreaseFontSize()"><mat-icon>remove_circle_outline</mat-icon></button>
-        <p>Size</p>
-        <button mat-menu-item class="let btn" (click)="increaseFontSize()"><mat-icon>add_circle_outline</mat-icon></button>
-      </div>
-      <div class="titulo">CURSOR</div>
-      <div id="menu">
-        <div class="accion">
-          <div class="texto">
-            <button mat-menu-item (click)="increaseCursorSize()"><mat-icon>mouse</mat-icon>Highlight</button>
-          </div>
-          <div class="texto">
-            <button mat-menu-item (click)="resetCursorSize()"><mat-icon>autorenew</mat-icon>Reset</button>
-          </div>
+    </div>
+    <div class="titulo">FONT</div>
+    <div class="letra" id="menu">
+      <button mat-menu-item class="let btn"
+        (click)="decreaseFontSize()"><mat-icon>remove_circle_outline</mat-icon></button>
+      <p>Size</p>
+      <button mat-menu-item class="let btn"
+        (click)="increaseFontSize()"><mat-icon>add_circle_outline</mat-icon></button>
+    </div>
+    <div class="titulo">CURSOR</div>
+    <div id="menu">
+      <div class="accion">
+        <div class="texto">
+          <button mat-menu-item (click)="increaseCursorSize()"><mat-icon>mouse</mat-icon>Highlight</button>
+        </div>
+        <div class="texto">
+          <button mat-menu-item (click)="resetCursorSize()"><mat-icon>autorenew</mat-icon>Reset</button>
         </div>
       </div>
-  
-      <button mat-menu-item id="menu" (click)="toggleImagenes()"><mat-icon>link</mat-icon>{{ mostrarImagenes ? 'Hide Images' : 'Show Images' }}</button>
-    </mat-menu>
-  </div>
-  
+    </div>
+
+    <button mat-menu-item id="menu" (click)="toggleImagenes()"><mat-icon>link</mat-icon>{{ mostrarImagenes ? 'Hide
+      Images' : 'Show Images' }}</button>
+  </mat-menu>
+</div>
