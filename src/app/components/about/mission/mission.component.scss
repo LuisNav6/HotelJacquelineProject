@@ -65,18 +65,9 @@
     grid-gap: 20px;
     align-items: center;
     height: 600px;
+    width: 100%;
 }
 
-.container .image-container {
-    background-color: #072230;
-    position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 20px;
-    align-items: center;
-    height: 600px;
-    width: 855px;
-}
 
 .container .image-container .img-1 {
     position: absolute;
@@ -86,17 +77,15 @@
     height: 300px;
     width: 450px;
     z-index: 1;
+    grid-row-start: 1;
+    grid-column-start: 1 / span 2;
 }
 
 .container .image-container .img-2 {
-    position: relative;
-    height: 400px;
-    width: 900px;
-    top: -10%;
-    right: 25%;
-    transform: translateX(20%);
-    grid-row-start: 1;
-    grid-column-start: 1 / span 2;
+    position: absolute;
+    height: cover;
+    width: 100%;
+    left: 40px;    /* ajusta el valor de left */
 }
 
 @media (max-width: 768px) {
