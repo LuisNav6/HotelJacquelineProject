@@ -1,10 +1,10 @@
-<div class="row">
+<div class="row container-back">
     <div class="col-lg-12">
         <div
-            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h2 class="h2">Reservations</h2>
+            class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 ">
+            <h2 class="h2 mx-4">Reservations</h2>
         </div>
-        <div class="my-4 table-responsive">
+        <div class="my-4 mx-4">
             <h3>Query by email</h3>
             <div class="row">
                 <div class="col-md-4">
@@ -14,7 +14,7 @@
                     <button class="btn btn-primary" (click)="searchUsersByEmail()">Buscar</button>
                 </div>
             </div>
-            <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg"
+            <table class="table table-bordered table-responsive-sm table-responsive-md table-responsive-lg  mx-1 my-4"
                 *ngIf="usersByEmail.length > 0">
                 <thead>
                     <tr>
@@ -24,6 +24,7 @@
                         <th scope="col">Check-In</th>
                         <th scope="col">Check-Out</th>
                         <th scope="col">Persons</th>
+                        <th scope="col">Options</th>
                     </tr>
                 </thead>
                 <tbody>
