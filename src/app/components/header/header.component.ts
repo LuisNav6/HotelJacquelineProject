@@ -11,14 +11,15 @@ import { UserService } from 'src/app/shared/user.service';
 export class HeaderComponent implements OnInit {
   @Input() loggedIn: boolean;
   @Input() userEmail: string;
-  
+
   isAdminView: boolean = false;
   isTransparent: boolean = true;
   isRegularUser: boolean = false;
   showMenu: boolean = false;
+  headerShow: boolean = false;
   userEmailHeader: string = '';
   filteredItems: { label: string, link: string }[] = [];
-  
+
   menuItems: { label: string, link: string }[] = [
     { label: 'Rooms', link: '/rooms' },
     { label: 'Explore', link: '/explore' },
@@ -78,6 +79,5 @@ export class HeaderComponent implements OnInit {
       })
       .catch((e) => console.log(e));
   }
-
 
 }

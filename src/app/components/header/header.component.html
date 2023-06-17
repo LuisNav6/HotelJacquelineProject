@@ -1,21 +1,23 @@
-<header [ngClass]="{'transparent': isTransparent, 'black': !isTransparent, 'admin-header': isAdminView}" fxLayout="column" fxLayout="row"
-  fxLayoutAlign="center center" fxLayoutGap="20px">
-  <a routerLink="/rooms">Rooms</a>
-  <a routerLink="/explore">Explore</a>
-  <a routerLink="/restaurant">Restaurant</a>
-  <div class="logo" fxLayoutAlign="center center" routerLink="/">
-    <img src="assets/imgs/Logo-Hotel-low.png" alt="">
-  </div>
-  <a routerLink="/about">About us</a>
-  <a routerLink="/contact-us">Contact us</a>
-  <div class="menu-container" *ngIf="isRegularUser" >
-    <div class="username" (click)="toggleMenu()">{{userEmailHeader}}</div>
-    <div class="menu" *ngIf="showMenu" >
-      <a routerLink="/book">Book</a>
-      <a routerLink="/queri-user">Reservations</a>
-      <a (click)="logOut()" routerLink="/login">Log Out</a>
+<div class="header-content" [ngClass]="{'menu-open': showMenu}">
+  <header [ngClass]="{'transparent': isTransparent, 'black': !isTransparent, 'admin-header': isAdminView}"
+    fxLayout="column" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <a routerLink="/rooms">Rooms</a>
+    <a routerLink="/explore">Explore</a>
+    <a routerLink="/restaurant">Restaurant</a>
+    <div class="logo" fxLayoutAlign="center center" routerLink="/">
+      <img src="assets/imgs/Logo-Hotel-low.png" alt="">
     </div>
-  </div>
+    <a routerLink="/about">About us</a>
+    <a routerLink="/contact-us">Contact us</a>
+    <div class="menu-container" *ngIf="isRegularUser">
+      <div class="username" (click)="toggleMenu()">{{userEmailHeader}}</div>
+      <div class="menu" *ngIf="showMenu">
+        <a routerLink="/book">Book</a>
+        <a routerLink="/queri-user">Reservations</a>
+        <a (click)="logOut()" routerLink="/login">Log Out</a>
+      </div>
+    </div>
 
-  <a *ngIf="!isRegularUser" routerLink="/login">Login</a>
-</header>
+    <a *ngIf="!isRegularUser" routerLink="/login">Login</a>
+  </header>
+</div>
