@@ -187,7 +187,7 @@ export class BookFormComponent implements OnInit {
             reservation: true // Es una reserva
           };
           console.log(params);
-          this.httpClient.post('http://localhost:3000/send', params)
+          this.httpClient.post('https://test-email-api.onrender.com/send', params)
             .subscribe((res: any) => {
               console.log(res);
               console.log(params);
