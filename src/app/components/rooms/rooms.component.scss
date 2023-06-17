@@ -138,3 +138,20 @@
     background-color: yellow;
   }
   
+  .minimal-select {
+    background-color: #081820;
+    border-radius: 1.5rem;
+    padding: 10px;
+    font-size: 20px;
+    color: white;
+    transition: transform 0.2s ease;
+  }
+  
+  .minimal-select:hover {
+    transform: scale(1.05);
+  }
+  
+  .minimal-select:focus {
+    outline: none;
+  }
+  

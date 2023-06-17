@@ -18,8 +18,14 @@
   <div class="title-home">
     <h1 [style.fontSize.px]="fontSizeh1">{{ 'Relax in comfort' }}</h1>
     <h2 [style.fontSize.px]="fontSizeh2">WITH OUR ROOMS</h2>
+    <select [(ngModel)]="searchTerm" (change)="filterRooms()" class="minimal-select">
+      <option value="all categories">All Categories</option>
+      <option value="regular">Regular</option>
+      <option value="vip">VIP</option>
+      <option value="familiar">Familiar</option>
+    </select>
     <div class="row">
-      <div class="col-md-6 col-sm-12 p-3" *ngFor="let room of rooms">
+      <div class="col-md-6 col-sm-12 p-3" *ngFor="let room of filteredRooms">
         <div class="card bg-dark-blue">
           <ng-container *ngIf="mostrarImagenes; else sinImagen">
             <div class="img-container">
@@ -32,9 +38,10 @@
           </ng-template>
           <div class="card-body">
             <h5 class="card-title text-left" [style.fontSize.px]="fontSizeh5">
-              {{ room.title | customUppercase  }}
+              {{ room.title | customUppercase }}
             </h5>
-            <h6 class="card-subtitle mb-2 text-muted text-left" style="font-weight: bold;" [style.fontSize.px]="fontSizeh6">
+            <h6 class="card-subtitle mb-2 text-muted text-left" style="font-weight: bold;"
+              [style.fontSize.px]="fontSizeh6">
               Bed: {{ room.bed | uppercase }} | Bath: {{ room.bath | number: '1.1' }}
             </h6>
             <p class="card-text text-left" [style.fontSize.px]="fontSizep">{{ room.desc | lowercase }}</p>
@@ -45,4 +52,5 @@
   </div>
 </div>
 
-    <app-access (fontSizeChanged)="onFontSizeChanged($event)" (mostrarImagenesChanged)="onMostrarImagenesChanged($event)" [mostrarImagenes]="mostrarImagenes"></app-access>
+<app-access (fontSizeChanged)="onFontSizeChanged($event)" (mostrarImagenesChanged)="onMostrarImagenesChanged($event)"
+  [mostrarImagenes]="mostrarImagenes"></app-access>

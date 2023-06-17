@@ -17,7 +17,6 @@ export class HeaderComponent implements OnInit {
   isRegularUser: boolean = false;
   showMenu: boolean = false;
   userEmailHeader: string = '';
-  searchTerm: string = '';
   filteredItems: { label: string, link: string }[] = [];
   
   menuItems: { label: string, link: string }[] = [
@@ -80,37 +79,5 @@ export class HeaderComponent implements OnInit {
       .catch((e) => console.log(e));
   }
 
-  filterItems() {
-    if (this.searchTerm.trim() === '') {
-      this.filteredItems = this.menuItems;
-    } else {
-      this.filteredItems = this.menuItems.filter(item =>
-        item.label.toLowerCase().includes(this.searchTerm.toLowerCase())
-      );
-    }
-  }
 
-  handleEnterKey() {
-    const searchTermLowerCase = this.searchTerm.toLowerCase();
-  
-    if (searchTermLowerCase === 'rooms') {
-      this.router.navigate(['/rooms']);
-    } else if (searchTermLowerCase === 'explore') {
-      this.router.navigate(['/explore']);
-    } else if (searchTermLowerCase === 'restaurant') {
-      this.router.navigate(['/restaurant']);
-    } else if (searchTermLowerCase === 'about us' || searchTermLowerCase === 'about') {
-      this.router.navigate(['/about']);
-    } else if (searchTermLowerCase === 'contact us' || searchTermLowerCase === 'contact') {
-      this.router.navigate(['/contact-us']);
-    } else if (searchTermLowerCase === 'home') {
-      this.router.navigate(['/home']);
-    } else {
-      this.router.navigate([], { fragment: searchTermLowerCase });
-    }
-  }
-
-  clearSearchTerm(): void {
-    this.searchTerm = '';
-  }
 }

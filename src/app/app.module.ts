@@ -38,7 +38,6 @@ import { ContactComponent } from './components/about/contact/contact.component';
 import { MapComponent } from './components/about/map/map.component';
 import { MissionComponent } from './components/about/mission/mission.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
-import { RoomTypesComponent } from './components/rooms/room-types/room-types.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { MenuSearchComponent } from './components/restaurant/menu-search/menu-search.component';
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
@@ -87,7 +86,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     MapComponent,
     MissionComponent,
     RoomsComponent,
-    RoomTypesComponent,
     RestaurantComponent,
     MenuSearchComponent,
     RestaurantHomeComponent,
