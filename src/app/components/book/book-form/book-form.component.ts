@@ -14,9 +14,11 @@ import * as Notiflix from 'notiflix';
   styleUrls: ['./book-form.component.scss']
 })
 export class BookFormComponent implements OnInit {
+  satisfaction: { rating: number, comment: string } = { rating: 0, comment: '' };
   public userForm: FormGroup;
   public selectedRoomImage: string;
   existingReservations: User[];
+  send: number = 0;
 
   constructor(
     public fb: FormBuilder,
@@ -35,6 +37,10 @@ export class BookFormComponent implements OnInit {
       .subscribe(reservations => {
         this.existingReservations = reservations;
       });
+  }
+
+  onSatisfactionSubmit(satisfaction: { rating: number, comment: string }) {
+    this.satisfaction = satisfaction;
   }
 
   uForm() {
@@ -105,6 +111,9 @@ export class BookFormComponent implements OnInit {
   }
 
   submitUserData() {
+    this.send = 0;
+    this.satisfaction.rating = 0;
+    this.satisfaction.comment = '';
     if (this.userForm.valid) {
       const checkInFormulario = new Date(this.userForm.get('checkIn').value);
       const checkOutFormulario = new Date(this.userForm.get('checkOut').value);
@@ -179,6 +188,7 @@ export class BookFormComponent implements OnInit {
         switch (band) {
           case 0:
             // Si no hay conflictos de fechas ni límite de reservaciones, guarda los datos de la reservación en la base de datos
+            this.send = 1;
             this.crudApi.AddUser(this.userForm.value);
             this.toastr.success(
               this.userForm.controls['firstName'].value + ' successfully added!'

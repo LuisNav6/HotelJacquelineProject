@@ -24,6 +24,7 @@
                         <th scope="col">Check-In</th>
                         <th scope="col">Check-Out</th>
                         <th scope="col">Persons</th>
+                        <th scope="col">Room Type</th>
                         <th scope="col">Options</th>
                     </tr>
                 </thead>
@@ -35,6 +36,7 @@
                         <td>{{ user.checkIn }}</td>
                         <td>{{ user.checkOut }}</td>
                         <td>{{ user.persons }}</td>
+                        <td>{{ user.roomType }}</td>
                         <td class="text-center action-block">
                             <span class="btn btn-outline-danger btn-sm" (click)="deleteUser(user)">Delete</span>
                             <button (click)="generar(user)" class="btn btn-outline-success btn-sm">Generate QR

@@ -1,3 +1,30 @@
+<div class="survey-container">
+  <div *ngIf="send == 1 && satisfaction.rating == 0">
+    <h1 class="survey-title">Satisfaction Survey</h1>
+    <app-satisfaction-form (submitForm)="onSatisfactionSubmit($event)" [placeholder]="'Type your comment here'"></app-satisfaction-form>
+    <br>
+  </div>
+  <div *ngIf="send === 0">
+    <div class="title-home">
+      <h1>Check-In</h1>
+      <h2><span>TRAVEL WITH PEACE</span></h2>
+      <p>Start your vacation on the right foot with our hassle-free check-in process.
+        <br>At Your Home, our premier vacation rental service, we understand that your time is precious and you
+        deserve a stress-free start to your trip. <br>
+        Relax and enjoy the perfect blend of comfort and sophistication in our stylish and welcoming vacation rentals.
+      </p>
+    </div>
+  </div>
+  <div *ngIf="satisfaction.rating > 0">
+    <div class="s-cont">
+      <p id="p2">Submitted answers:</p>
+      <div *ngIf="satisfaction">
+        <p>Rating: {{satisfaction.rating}}</p>
+        <p>Comment: {{satisfaction.comment}}</p>
+      </div>
+    </div>
+  </div>
+</div>
 <form [formGroup]="userForm" (ngSubmit)="submitUserData()" novalidate class="container-back">
   <div class="row">
     <div class="col-lg-5 col-md-12 col-sm-12">

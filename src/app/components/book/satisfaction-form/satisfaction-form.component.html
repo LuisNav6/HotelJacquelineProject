@@ -1,1 +1,24 @@
-<p>satisfaction-form works!</p>
+<div class="container">
+    <div class="title-home">
+      <h1>Rate us and leave your comments </h1>
+    </div>
+  <form (ngSubmit)="onSubmit()" class="form">
+    <div class="col-4 input-cont py-2">
+      <label>Rating:</label>
+      <select [(ngModel)]="rating" name="rating" class="form-control">
+        <option value="5">5 stars</option>
+        <option value="4">4 stars</option>
+        <option value="3">3 stars</option>
+        <option value="2">2 stars</option>
+        <option value="1">1 star</option>
+      </select>
+    </div>
+    <div class="col-4 input-cont py-2">
+      <label>Comment:</label>
+      <textarea [(ngModel)]="comment" name="comment" class="form-control"></textarea>
+    </div>
+    <div class="col-4 offset-md-4 btn-sub">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+  </div>
