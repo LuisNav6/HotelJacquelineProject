@@ -41,7 +41,7 @@ import { RoomsComponent } from './components/rooms/rooms.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { MenuSearchComponent } from './components/restaurant/menu-search/menu-search.component';
 import { RestaurantHomeComponent } from './components/restaurant/restaurant-home/restaurant-home.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ExploreHomeComponent } from './components/explore/explore-home/explore-home.component';
 import { ImgExploreComponent } from './components/explore/img-explore/img-explore.component';
@@ -50,6 +50,7 @@ import { DomseguroPipe } from './components/explore/video-explore/domseguro.pipe
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FormBookComponent } from './components/contact-us/form-book/form-book.component';
 import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet-our-team.component';
+<<<<<<< HEAD
 import { QueriUserComponent } from './components/queri-user/queri-user.component';
 import { BookComponent } from './components/book/book.component';
 import { BookFormComponent } from './components/book/book-form/book-form.component';
@@ -62,6 +63,11 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { CustomUppercasePipe } from './shared/custom-uppercase.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
+=======
+import { SpinnerModule } from './shared/spinner/spinner.module';
+import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
+import { ChartsComponent } from './components/charts/charts.component';
+>>>>>>> origin/Michelle
 
 @NgModule({
   declarations: [
@@ -97,6 +103,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ContactUsComponent,
     FormBookComponent,
     MeetOurTeamComponent,
+<<<<<<< HEAD
     QueriUserComponent,
     BookComponent,
     BookFormComponent,
@@ -105,6 +112,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AccessComponent,
     CustomUppercasePipe
 
+=======
+    ChartsComponent
+>>>>>>> origin/Michelle
   ],
   imports: [
     BrowserModule,
@@ -124,6 +134,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     FlexLayoutModule,
     FontAwesomeModule,
     HttpClientModule,
+<<<<<<< HEAD
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
@@ -133,12 +144,17 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     })
+=======
+    SpinnerModule
+>>>>>>> origin/Michelle
   ],
   exports: [
     HeaderComponent,
     FooterComponent
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })

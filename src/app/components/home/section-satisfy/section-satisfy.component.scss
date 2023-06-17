@@ -87,6 +87,12 @@
 @media (max-width: 768px) {
     .container {
         grid-template-columns: 1fr;
-        padding: 20px 0;
+        width: auto;
+        text-align: center;
     }
+
+    .container .image-container {
+        display: none;
+    }
+
 }

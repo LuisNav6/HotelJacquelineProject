@@ -71,3 +71,24 @@
     border: 2px solid white;
     border-radius: 5px;
 }
+
+@media (max-width: 768px) {
+    .container-experience {
+        height: auto; /* Reset the height to auto for smaller screens */
+        text-align: center;
+    }
+
+    .container-experience .image-container-experience {
+        grid-template-columns: 1fr;
+        grid-gap: 20px;
+        align-items: center;
+        width: 100%;
+    }
+
+    .title-container-ex-main{
+        width: auto;
+        text-align: center;
+        margin-right: 50px;
+    }
+    
+}

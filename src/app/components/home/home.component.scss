@@ -3,6 +3,7 @@
 .title-container {
     display: flex;
     flex-direction: column;
+    text-align: center;
     align-items: center;
     margin: 0 auto;
     height: 100vh;
@@ -30,11 +31,19 @@ h3 {
 .container-main {
     display: flex;
     flex-direction: column;
-    height: 700px;
+    height: 100vh; /* Set the container height to 100% of the viewport height */
     min-height: 100%;
     min-width: 100%;
     background-image: url(/assets/imgs/fake/fake1.jpg);
     background-size: cover;
     background-position: center;
     margin: 0 auto;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .container-main {
+        height: auto; /* Reset the height to auto for smaller screens */
+        text-align: center;
+    }
 }
