@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 
 export class QrService {
-  private baseUrl = 'http://localhost:3000/';
+  private baseUrl = 'https://qr-back-end.onrender.com';
   constructor(private http: HttpClient) { }
 
   obtenerRegistros(): Observable<any[]> {
