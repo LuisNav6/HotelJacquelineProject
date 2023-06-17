@@ -20,9 +20,9 @@
     <h2 [style.fontSize.px]="fontSizeh2">WITH OUR ROOMS</h2>
     <select [(ngModel)]="searchTerm" (change)="filterRooms()" class="minimal-select">
       <option value="all categories">All Categories</option>
-      <option value="regular">Regular</option>
-      <option value="vip">VIP</option>
-      <option value="familiar">Familiar</option>
+      <option value="regular">Doble</option>
+      <option value="vip">Twin-room</option>
+      <option value="familiar">Family</option>
     </select>
     <div class="row">
       <div class="col-md-6 col-sm-12 p-3" *ngFor="let room of filteredRooms">

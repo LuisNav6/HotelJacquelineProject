@@ -3,13 +3,13 @@
     <div
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
     >
-      <h2 class="h2">Users List</h2>
+      <h2 class="h2">Reservation List</h2>
       <a
         routerLink="/register-student"
         class="btn btn-success"
         *ngIf="hideWhenNoStudent"
       >
-        Add User
+        Add Reservation
       </a>
     </div>
 
@@ -19,8 +19,8 @@
       </div>
 
       <div class="no-data text-center" *ngIf="noData">
-        <p class="nodata-msg">No user added yet!</p>
-        <a routerLink="/register-student" class="btn btn-success">Add User</a>
+        <p class="nodata-msg">No reservations added yet!</p>
+        <a routerLink="/register-student" class="btn btn-success">Add Reservation</a>
       </div>
 
       <div class="table-responsive" *ngIf="hideWhenNoStudent">

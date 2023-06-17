@@ -17,14 +17,14 @@ export class BookFormComponent implements OnInit {
   public userForm: FormGroup;
   public selectedRoomImage: string;
   existingReservations: User[];
-  
+
   constructor(
     public fb: FormBuilder,
     public toastr: ToastrService,
     public crudApi: CrudService,
     private db: AngularFireDatabase,
     private httpClient: HttpClient
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.uForm();
@@ -59,7 +59,7 @@ export class BookFormComponent implements OnInit {
   getCurrentDate(): string {
     const today = new Date();
     const day = today.getDate();
-    const month = today.getMonth() + 1; 
+    const month = today.getMonth() + 1;
     const year = today.getFullYear();
 
     const dayString = day < 10 ? '0' + day : day.toString();
@@ -109,99 +109,111 @@ export class BookFormComponent implements OnInit {
       const checkInFormulario = new Date(this.userForm.get('checkIn').value);
       const checkOutFormulario = new Date(this.userForm.get('checkOut').value);
       const TAMANOBD = this.existingReservations.length;
-  
+      const selectedRoomType = this.userForm.controls['roomType'].value;
+      const selectedPersons = this.userForm.controls['persons'].value;
+
       let band = 0;
       let roomTypeCounts = {
         double: 0,
         twin: 0,
         family: 0,
       };
-  
-      for (let i = 0; i < TAMANOBD; i++) {
-        const checkInBaseDatos = new Date(this.existingReservations[i].checkIn);
-        const checkOutBaseDatos = new Date(this.existingReservations[i].checkOut);
-        const roomType = this.existingReservations[i].roomType;
-  
-        if (
-          checkInFormulario >= checkInBaseDatos &&
-          checkInFormulario < checkOutBaseDatos
-        ) {
-          band = 3;
-          break;
-        } else if (
-          checkOutFormulario > checkInBaseDatos &&
-          checkOutFormulario <= checkOutBaseDatos
-        ) {
-          band = 4;
-          break;
-        } else if (
-          checkInFormulario < checkInBaseDatos &&
-          checkOutFormulario > checkOutBaseDatos
-        ) {
-          band = 5;
-          break;
-        } else if (checkInFormulario > checkOutFormulario) {
-          band = 1;
-          break;
+
+      if (selectedRoomType === 'double' && selectedPersons > 2) {
+        this.toastr.error('Exceeded maximum number of persons for Double Room');
+        return;
+      } else if (selectedRoomType === 'twin' && selectedPersons > 3) {
+        this.toastr.error('Exceeded maximum number of persons for Twin Room / Twin Bedded');
+        return;
+      } else if (selectedRoomType === 'family' && selectedPersons > 5) {
+        this.toastr.error('Exceeded maximum number of persons for Family Room');
+        return;
+      } else {
+        for (let i = 0; i < TAMANOBD; i++) {
+          const checkInBaseDatos = new Date(this.existingReservations[i].checkIn);
+          const checkOutBaseDatos = new Date(this.existingReservations[i].checkOut);
+          const roomType = this.existingReservations[i].roomType;
+
+          if (
+            checkInFormulario >= checkInBaseDatos &&
+            checkInFormulario < checkOutBaseDatos
+          ) {
+            band = 3;
+            break;
+          } else if (
+            checkOutFormulario > checkInBaseDatos &&
+            checkOutFormulario <= checkOutBaseDatos
+          ) {
+            band = 4;
+            break;
+          } else if (
+            checkInFormulario < checkInBaseDatos &&
+            checkOutFormulario > checkOutBaseDatos
+          ) {
+            band = 5;
+            break;
+          } else if (checkInFormulario > checkOutFormulario) {
+            band = 1;
+            break;
+          }
+
+          // Actualizar el conteo de reservaciones por tipo de habitación
+          if (roomTypeCounts[roomType]) {
+            roomTypeCounts[roomType]++;
+          } else {
+            roomTypeCounts[roomType] = 1;
+          }
         }
-  
-        // Actualizar el conteo de reservaciones por tipo de habitación
-        if (roomTypeCounts[roomType]) {
-          roomTypeCounts[roomType]++;
-        } else {
-          roomTypeCounts[roomType] = 1;
+
+        const selectedRoomType = this.userForm.get('roomType').value;
+        const maxReservations = {
+          double: 10,
+          twin: 7,
+          family: 4,
+        };
+
+        if (roomTypeCounts[selectedRoomType] >= maxReservations[selectedRoomType]) {
+          band = 6;
         }
-      }
-  
-      const selectedRoomType = this.userForm.get('roomType').value;
-      const maxReservations = {
-        double: 10,
-        twin: 7,
-        family: 4,
-      };
-  
-      if (roomTypeCounts[selectedRoomType] >= maxReservations[selectedRoomType]) {
-        band = 6;
-      }
-  
-      switch (band) {
-        case 0:
-          // Si no hay conflictos de fechas ni límite de reservaciones, guarda los datos de la reservación en la base de datos
-          this.crudApi.AddUser(this.userForm.value);
-          this.toastr.success(
-            this.userForm.controls['firstName'].value + ' successfully added!'
-          );
-          
-          Notiflix.Loading.circle('Loading...');
-          // Enviar correo con la información capturada
-          const params = {
-            firstName: this.userForm.get('firstName').value,
-            lastName: this.userForm.get('lastName').value,
-            email: this.userForm.get('email').value,
-            mobileNumber: this.userForm.get('mobileNumber').value,
-            checkIn: this.userForm.get('checkIn').value,
-            checkOut: this.userForm.get('checkOut').value,
-            persons: this.userForm.get('persons').value,
-            roomType: this.userForm.get('roomType').value,
-            complaint: false, // No es una queja
-            reservation: true // Es una reserva
-          };
-          console.log(params);
-          this.httpClient.post('https://test-email-api.onrender.com/send', params)
-            .subscribe((res: any) => {
-              console.log(res);
-              console.log(params);
-              Notiflix.Loading.remove();
-              if (res.ok) {
-                Notiflix.Notify.success('Successfully sent');
-                console.log('Email sent successfully');
-              } else {
-                Notiflix.Notify.failure('Something went wrong. Try again...');
-                console.log('Error en la respuesta del servidor');
-              }
-            });
+
+        switch (band) {
+          case 0:
+            // Si no hay conflictos de fechas ni límite de reservaciones, guarda los datos de la reservación en la base de datos
+            this.crudApi.AddUser(this.userForm.value);
+            this.toastr.success(
+              this.userForm.controls['firstName'].value + ' successfully added!'
+            );
+
+            Notiflix.Loading.circle('Loading...');
+            // Enviar correo con la información capturada
+            const params = {
+              firstName: this.userForm.get('firstName').value,
+              lastName: this.userForm.get('lastName').value,
+              email: this.userForm.get('email').value,
+              mobileNumber: this.userForm.get('mobileNumber').value,
+              checkIn: this.userForm.get('checkIn').value,
+              checkOut: this.userForm.get('checkOut').value,
+              persons: this.userForm.get('persons').value,
+              roomType: this.userForm.get('roomType').value,
+              complaint: false, // No es una queja
+              reservation: true // Es una reserva
+            };
+            console.log(params);
+            this.httpClient.post('https://test-email-api.onrender.com/send', params)
+              .subscribe((res: any) => {
+                console.log(res);
+                console.log(params);
+                Notiflix.Loading.remove();
+                if (res.ok) {
+                  Notiflix.Notify.success('Successfully sent');
+                  console.log('Email sent successfully');
+                } else {
+                  Notiflix.Notify.failure('Something went wrong. Try again...');
+                  console.log('Error en la respuesta del servidor');
+                }
+              });
             this.ResetForm();
-          break;
+            break;
           case 1:
             this.toastr.error('Invalid date combination');
             break;
@@ -219,12 +231,13 @@ export class BookFormComponent implements OnInit {
               'All ' + selectedRoomType + ' rooms are occupied'
             );
             break;
+        }
       }
     } else {
       this.toastr.error('Please fill in all the required fields');
     }
   }
-  
+
 
   updateRoomImage() {
     const roomType = this.userForm.get('roomType').value;
