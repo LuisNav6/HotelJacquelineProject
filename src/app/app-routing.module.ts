@@ -15,12 +15,9 @@ import { RoomsComponent } from './components/rooms/rooms.component';
 import { RestaurantComponent } from './components/restaurant/restaurant.component';
 import { ExploreComponent } from './components/explore/explore.component';
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
-<<<<<<< HEAD
 import { QueriUserComponent } from './components/queri-user/queri-user.component';
 import { BookComponent } from './components/book/book.component';
-=======
 import { ChartsComponent } from './components/charts/charts.component';
->>>>>>> origin/Michelle
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/home'},

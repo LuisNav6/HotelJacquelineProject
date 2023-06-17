@@ -17,7 +17,7 @@
     <div class="lector" id="menu">
       <div class="accion">
         <div class="texto">
-          <button mat-menu-item (click)="resumeReading()"><mat-icon>play_arrow</mat-icon><span>Play</span></button>
+          <button mat-menu-item  (click)="resumeReading()"><mat-icon>play_arrow</mat-icon><span>Play</span></button>
         </div>
         <div class="texto">
           <button mat-menu-item (click)="stopReading()"><mat-icon>stop</mat-icon><span>Stop</span></button>
@@ -28,7 +28,6 @@
     <div class="letra" id="menu">
       <button mat-menu-item class="let btn"
         (click)="decreaseFontSize()"><mat-icon>remove_circle_outline</mat-icon></button>
-      <p>Size</p>
       <button mat-menu-item class="let btn"
         (click)="increaseFontSize()"><mat-icon>add_circle_outline</mat-icon></button>
     </div>
@@ -43,8 +42,7 @@
         </div>
       </div>
     </div>
-
-    <button mat-menu-item id="menu" (click)="toggleImagenes()"><mat-icon>link</mat-icon>{{ mostrarImagenes ? 'Hide
-      Images' : 'Show Images' }}</button>
+    <div class="titulo">IMAGES</div>
+    <button mat-menu-item id="menu" style="color:#5B6A6F" (click)="toggleImagenes()"><mat-icon>link</mat-icon> {{ mostrarImagenes ? 'HideImages' : 'Show Images' }}</button>
   </mat-menu>
 </div>

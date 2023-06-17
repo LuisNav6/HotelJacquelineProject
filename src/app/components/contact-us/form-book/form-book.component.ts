@@ -37,7 +37,9 @@ export class FormBookComponent implements OnInit{
     let params = {
       email: this.data.value.email,
       about: this.data.value.about,
-      mssg: this.data.value.mssg
+      mssg: this.data.value.mssg,
+      complaint: true, // No es una queja
+      reservation: false // Es una reserva
     }
 
     // Establecemos la conexión con el backend

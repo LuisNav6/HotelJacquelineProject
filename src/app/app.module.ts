@@ -50,7 +50,6 @@ import { DomseguroPipe } from './components/explore/video-explore/domseguro.pipe
 import { ContactUsComponent } from './components/contact-us/contact-us.component';
 import { FormBookComponent } from './components/contact-us/form-book/form-book.component';
 import { MeetOurTeamComponent } from './components/contact-us/meet-our-team/meet-our-team.component';
-<<<<<<< HEAD
 import { QueriUserComponent } from './components/queri-user/queri-user.component';
 import { BookComponent } from './components/book/book.component';
 import { BookFormComponent } from './components/book/book-form/book-form.component';
@@ -60,14 +59,11 @@ import { AccessComponent } from './components/access/access.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
-
 import { CustomUppercasePipe } from './shared/custom-uppercase.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
-=======
+import { ChartsComponent } from './components/charts/charts.component';
 import { SpinnerModule } from './shared/spinner/spinner.module';
 import { SpinnerInterceptor } from './shared/interceptors/spinner.interceptor';
-import { ChartsComponent } from './components/charts/charts.component';
->>>>>>> origin/Michelle
 
 @NgModule({
   declarations: [
@@ -103,18 +99,14 @@ import { ChartsComponent } from './components/charts/charts.component';
     ContactUsComponent,
     FormBookComponent,
     MeetOurTeamComponent,
-<<<<<<< HEAD
     QueriUserComponent,
     BookComponent,
     BookFormComponent,
     SatisfactionFormComponent,
     QueriUserFormComponent,
     AccessComponent,
-    CustomUppercasePipe
-
-=======
+    CustomUppercasePipe,
     ChartsComponent
->>>>>>> origin/Michelle
   ],
   imports: [
     BrowserModule,
@@ -134,7 +126,6 @@ import { ChartsComponent } from './components/charts/charts.component';
     FlexLayoutModule,
     FontAwesomeModule,
     HttpClientModule,
-<<<<<<< HEAD
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
@@ -143,10 +134,8 @@ import { ChartsComponent } from './components/charts/charts.component';
       // Register the ServiceWorker as soon as the app is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
-=======
+    }),
     SpinnerModule
->>>>>>> origin/Michelle
   ],
   exports: [
     HeaderComponent,

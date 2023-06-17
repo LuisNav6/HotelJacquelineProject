@@ -6,7 +6,7 @@
     text-align: center;
     align-items: center;
     margin: 0 auto;
-    height: 100vh;
+    height: 700px;
     margin-top: 100px;
     justify-content: center;
 }
@@ -31,8 +31,8 @@ h3 {
 .container-main {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Set the container height to 100% of the viewport height */
     min-height: 100%;
+    height: 700px;
     min-width: 100%;
     background-image: url(/assets/imgs/fake/fake1.jpg);
     background-size: cover;
