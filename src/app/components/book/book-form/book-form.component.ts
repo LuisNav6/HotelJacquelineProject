@@ -4,8 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CrudService } from 'src/app/shared/crud.service';
 import { User } from 'src/app/shared/student';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
+import * as Notiflix from 'notiflix';
 
 @Component({
   selector: 'app-book-form',
@@ -16,11 +17,13 @@ export class BookFormComponent implements OnInit {
   public userForm: FormGroup;
   public selectedRoomImage: string;
   existingReservations: User[];
+  
   constructor(
     public fb: FormBuilder,
     public toastr: ToastrService,
     public crudApi: CrudService,
-    private db: AngularFireDatabase
+    private db: AngularFireDatabase,
+    private httpClient: HttpClient
   ) {}
 
   ngOnInit() {
@@ -168,7 +171,36 @@ export class BookFormComponent implements OnInit {
           this.toastr.success(
             this.userForm.controls['firstName'].value + ' successfully added!'
           );
-          this.ResetForm();
+          
+          Notiflix.Loading.circle('Loading...');
+          // Enviar correo con la información capturada
+          const params = {
+            firstName: this.userForm.get('firstName').value,
+            lastName: this.userForm.get('lastName').value,
+            email: this.userForm.get('email').value,
+            mobileNumber: this.userForm.get('mobileNumber').value,
+            checkIn: this.userForm.get('checkIn').value,
+            checkOut: this.userForm.get('checkOut').value,
+            persons: this.userForm.get('persons').value,
+            roomType: this.userForm.get('roomType').value,
+            complaint: false, // No es una queja
+            reservation: true // Es una reserva
+          };
+          console.log(params);
+          this.httpClient.post('http://localhost:3000/send', params)
+            .subscribe((res: any) => {
+              console.log(res);
+              console.log(params);
+              Notiflix.Loading.remove();
+              if (res.ok) {
+                Notiflix.Notify.success('Successfully sent');
+                console.log('Email sent successfully');
+              } else {
+                Notiflix.Notify.failure('Something went wrong. Try again...');
+                console.log('Error en la respuesta del servidor');
+              }
+            });
+            this.ResetForm();
           break;
           case 1:
             this.toastr.error('Invalid date combination');

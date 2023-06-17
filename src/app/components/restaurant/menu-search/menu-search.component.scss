@@ -24,8 +24,16 @@ table {
     max-width: 800px;
     margin: 0 auto;
     border-collapse: collapse;
-    background-color: #081820;
+    background-color: #0b161b !important;
     color: white;
+}
+
+table tr:hover{
+    background-color: #070d0f !important;
+}
+
+table th{
+    background-color: #051014 !important;
 }
 
 .title-cat {
@@ -59,4 +67,4 @@ td {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto;
     gap: 30px;
-}
+} 
