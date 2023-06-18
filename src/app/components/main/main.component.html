@@ -4,7 +4,7 @@
   <ng-container *ngIf="!isSpecialRoute()">
     <app-header ></app-header>
   </ng-container>
-  <div class="">
+  <div class="" *ngIf="!isSpecialRoute()">
     <app-access></app-access>
     <router-outlet></router-outlet>
   </div>
