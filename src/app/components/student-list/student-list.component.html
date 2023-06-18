@@ -3,7 +3,7 @@
     <div
       class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom"
     >
-      <h2 class="h2">Reservation List</h2>
+      <h2 class="h2">Reservations List</h2>
       <a
         routerLink="/register-student"
         class="btn btn-success"
@@ -19,7 +19,7 @@
       </div>
 
       <div class="no-data text-center" *ngIf="noData">
-        <p class="nodata-msg">No reservations added yet!</p>
+        <p class="nodata-msg">No reservation added yet!</p>
         <a routerLink="/register-student" class="btn btn-success">Add Reservation</a>
       </div>
 
@@ -36,7 +36,6 @@
               <th scope="col">Check-In</th>
               <th scope="col">Check-Out</th>
               <th scope="col">Persons</th>
-              <th scope="col">Room Type</th>
               <th class="text-center" scope="col">Edit</th>
             </tr>
           </thead>
@@ -55,7 +54,6 @@
               <td>{{ u.checkIn }}</td>
               <td>{{ u.checkOut }}</td>
               <td>{{ u.persons }}</td>
-              <td>{{ u.roomType }}</td>
               <td class="text-center action-block">
                 <span
                   class="mr-2 btn btn-outline-primary btn-sm"
@@ -67,12 +65,31 @@
                   (click)="deleteUser(u)"
                   >Delete</span
                 >
+                  <button (click)="generar(u)" class="btn btn-outline-success btn-sm">Generate QR code</button>
               </td>
             </tr>
           </tbody>
         </table>
+        <div class="cajaQR">
+          <div *ngIf="qrCodeUrl" class="cajaQR qr-container">
+            <h3 class="h2">QR code of the selected user</h3>
+            <div class="qr-image">
+              <img [src]="qrCodeUrl" alt="Código QR">
+            </div>
+          </div>
+          <div class="text-center">
+          <button (click)="generarGeneral()" class="btn btn-success">Generate QR code for all reservations</button>
+        </div>
+          <div *ngIf="qrCodeUrl2" class="cajaQR qr-container">
+            <h3 class="h2">QR code of all reservations</h3>
+            <div class="qr-image">
+              <img [src]="qrCodeUrl2" alt="Código QR">
+            </div>
+          </div>
+        </div>
+        
       </div>
-
+      
       <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
